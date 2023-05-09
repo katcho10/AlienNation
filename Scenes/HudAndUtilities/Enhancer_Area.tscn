@@ -1,0 +1,264 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scripts/enhancer.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/HudAndUtilities/All_Skill_Icons.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Hud/bg_002.png" type="Texture" id=3]
+[ext_resource path="res://MyResources/DynamicFonts/Kenney_Mini_S8.res" type="DynamicFont" id=4]
+[ext_resource path="res://MyResources/ThemesFolder/focusButton.stylebox" type="StyleBox" id=5]
+[ext_resource path="res://MyResources/ThemesFolder/yellowdButton.stylebox" type="StyleBox" id=6]
+[ext_resource path="res://Assets/Hud/bg_003.png" type="Texture" id=7]
+[ext_resource path="res://MyResources/DynamicFonts/Kenney_Mini_s16.res" type="DynamicFont" id=8]
+[ext_resource path="res://MyResources/Level_Item_Pool/AddonPool001.res" type="Resource" id=9]
+[ext_resource path="res://Assets/Icons/restore_icons.png" type="Texture" id=11]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.99989, 1, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 4, 2, 2 )
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+flags_disable_ambient_light = true
+albedo_color = Color( 0, 0.662745, 0.627451, 0.584314 )
+
+[node name="Enhancer_Area" type="Area"]
+collision_layer = 0
+input_ray_pickable = false
+monitorable = false
+script = ExtResource( 1 )
+addon_pool = ExtResource( 9 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00321, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98832, 0 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Front_Shop_BG" type="TextureRect" parent="CanvasLayer"]
+visible = false
+margin_left = 141.0
+margin_top = 28.0
+margin_right = 220.0
+margin_bottom = 144.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Front_Shop_BG"]
+margin_left = 2.0
+margin_top = 12.0
+margin_right = 77.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 4 )
+text = "Enhancer
+Shop"
+align = 1
+autowrap = true
+
+[node name="talk_button" type="Button" parent="CanvasLayer/Front_Shop_BG"]
+margin_left = 5.64403
+margin_top = 40.9686
+margin_right = 73.644
+margin_bottom = 58.9686
+custom_fonts/font = ExtResource( 4 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 6 )
+text = "Talk"
+
+[node name="addons_button" type="Button" parent="CanvasLayer/Front_Shop_BG"]
+margin_left = 6.28795
+margin_top = 63.7203
+margin_right = 74.2879
+margin_bottom = 81.7203
+custom_fonts/font = ExtResource( 4 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 6 )
+text = "Addons"
+
+[node name="Shop_BG" type="TextureRect" parent="CanvasLayer"]
+visible = false
+margin_left = -0.418121
+margin_right = 359.582
+margin_bottom = 180.0
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="CanvasLayer/Shop_BG"]
+margin_left = 33.4181
+margin_top = 61.0
+margin_right = 117.418
+margin_bottom = 81.0
+custom_fonts/font = ExtResource( 8 )
+text = "Enhancer"
+
+[node name="Label2" type="Label" parent="CanvasLayer/Shop_BG"]
+margin_left = 7.41812
+margin_top = 121.0
+margin_right = 126.418
+margin_bottom = 141.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 8 )
+text = "Remove Addon"
+
+[node name="debug_label" type="Label" parent="CanvasLayer/Shop_BG"]
+margin_left = 13.4181
+margin_top = 84.0
+margin_right = 111.418
+margin_bottom = 95.0
+custom_fonts/font = ExtResource( 4 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Shop_BG"]
+margin_left = 239.0
+margin_top = 7.0
+margin_right = 348.0
+margin_bottom = 172.0
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Shop_BG/ScrollContainer"]
+margin_right = 90.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 90, 38 )
+
+[node name="shop_close_button" type="Button" parent="CanvasLayer/Shop_BG"]
+margin_left = 5.49764
+margin_top = 60.6467
+margin_right = 28.4976
+margin_bottom = 80.6467
+custom_fonts/font = ExtResource( 8 )
+custom_styles/normal = ExtResource( 6 )
+shortcut_in_tooltip = false
+text = " X"
+
+[node name="rem_slot_button" type="Button" parent="CanvasLayer/Shop_BG"]
+margin_left = 8.41812
+margin_top = 147.0
+margin_right = 40.4181
+margin_bottom = 161.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = ExtResource( 6 )
+shortcut_in_tooltip = false
+text = " slot 1"
+
+[node name="rem_slot_button2" type="Button" parent="CanvasLayer/Shop_BG"]
+margin_left = 47.4181
+margin_top = 147.0
+margin_right = 79.4181
+margin_bottom = 161.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = ExtResource( 6 )
+shortcut_in_tooltip = false
+text = " slot 2"
+
+[node name="rem_slot_button3" type="Button" parent="CanvasLayer/Shop_BG"]
+margin_left = 87.4181
+margin_top = 147.0
+margin_right = 119.418
+margin_bottom = 161.0
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = ExtResource( 6 )
+shortcut_in_tooltip = false
+text = " slot 3"
+
+[node name="Addon_Stat_BG" type="TextureRect" parent="CanvasLayer/Shop_BG"]
+visible = false
+margin_left = 128.945
+margin_top = 7.32598
+margin_right = 234.945
+margin_bottom = 172.326
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Shop_BG/Addon_Stat_BG"]
+margin_left = 36.0
+margin_top = 28.0
+margin_right = 55.0
+margin_bottom = 39.0
+custom_colors/font_color = Color( 1, 0.890196, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Fee:"
+valign = 1
+clip_text = true
+
+[node name="Label2" type="Label" parent="CanvasLayer/Shop_BG/Addon_Stat_BG"]
+margin_left = 6.47311
+margin_top = 48.674
+margin_right = 58.4731
+margin_bottom = 58.674
+custom_colors/font_color = Color( 0.0666667, 1, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "requirment:"
+
+[node name="name_label" type="Label" parent="CanvasLayer/Shop_BG/Addon_Stat_BG"]
+margin_left = 4.85391
+margin_top = 9.42696
+margin_right = 101.854
+margin_bottom = 23.427
+custom_fonts/font = ExtResource( 4 )
+valign = 1
+clip_text = true
+
+[node name="fee_label" type="Label" parent="CanvasLayer/Shop_BG/Addon_Stat_BG"]
+margin_left = 57.0
+margin_top = 28.0
+margin_right = 103.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 4 )
+text = "9999999"
+valign = 1
+clip_text = true
+
+[node name="all_skill_icons" parent="CanvasLayer/Shop_BG/Addon_Stat_BG" instance=ExtResource( 2 )]
+position = Vector2( 16.351, 37.958 )
+
+[node name="restore_icons" type="Sprite" parent="CanvasLayer/Shop_BG/Addon_Stat_BG"]
+position = Vector2( 9.47311, 64.674 )
+texture = ExtResource( 11 )
+region_enabled = true
+region_rect = Rect2( 0, 10, 8, 7 )
+
+[node name="en_req_label" type="Label" parent="CanvasLayer/Shop_BG/Addon_Stat_BG"]
+margin_left = 20.4731
+margin_top = 58.674
+margin_right = 63.4731
+margin_bottom = 68.674
+custom_colors/font_color = Color( 0.0666667, 1, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "200"
+
+[node name="description_label" type="Label" parent="CanvasLayer/Shop_BG/Addon_Stat_BG"]
+margin_left = 4.47311
+margin_top = 71.674
+margin_right = 101.473
+margin_bottom = 158.674
+custom_fonts/font = ExtResource( 4 )
+autowrap = true
+clip_text = true
+
+[node name="install_button" type="Button" parent="CanvasLayer/Shop_BG/Addon_Stat_BG"]
+margin_left = -105.527
+margin_top = 89.674
+margin_right = -27.5269
+margin_bottom = 108.674
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = ExtResource( 6 )
+text = "Install Addon"
+
+[connection signal="body_entered" from="." to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_area_body_exited"]
+[connection signal="button_up" from="CanvasLayer/Front_Shop_BG/addons_button" to="." method="_on_addons_button_button_up"]
+[connection signal="button_up" from="CanvasLayer/Shop_BG/shop_close_button" to="." method="_on_shop_close_button_button_up"]
+[connection signal="button_up" from="CanvasLayer/Shop_BG/rem_slot_button" to="." method="_on_rem_slot_button_button_up"]
+[connection signal="button_up" from="CanvasLayer/Shop_BG/rem_slot_button2" to="." method="_on_rem_slot_button2_button_up"]
+[connection signal="button_up" from="CanvasLayer/Shop_BG/rem_slot_button3" to="." method="_on_rem_slot_button3_button_up"]
+[connection signal="button_up" from="CanvasLayer/Shop_BG/Addon_Stat_BG/install_button" to="." method="_on_install_button_button_up"]

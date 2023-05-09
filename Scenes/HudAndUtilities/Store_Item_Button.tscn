@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://MyResources/ThemesFolder/focusButton.stylebox" type="StyleBox" id=1]
+[ext_resource path="res://MyResources/ThemesFolder/yellowdButton.stylebox" type="StyleBox" id=2]
+[ext_resource path="res://MyResources/DynamicFonts/Kenney_Mini_S8.res" type="DynamicFont" id=3]
+[ext_resource path="res://Scripts/Store_Item.gd" type="Script" id=4]
+
+[node name="store_item_button" type="Button"]
+margin_right = 90.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 90, 20 )
+custom_fonts/font = ExtResource( 3 )
+custom_styles/focus = ExtResource( 1 )
+custom_styles/normal = ExtResource( 2 )
+text = "bread"
+align = 0
+script = ExtResource( 4 )
+
+[connection signal="button_up" from="." to="." method="_on_store_item_button_button_up"]

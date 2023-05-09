@@ -1,0 +1,208 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Scripts/level_map.gd" type="Script" id=1]
+[ext_resource path="res://MyResources/Level_Item_Pool/Pool001.res" type="Resource" id=2]
+[ext_resource path="res://MyResources/MeshLibraries/city_tiles01.meshlib" type="MeshLibrary" id=3]
+[ext_resource path="res://Assets/Map/side_block04.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Map/side_block01.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/MapProps/LevelBlocks/Far_Building_006.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/MapProps/LevelBlocks/Far_Building_003.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/MapProps/LevelBlocks/Far_Building_004.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/HudAndUtilities/Door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/zone_path.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Character/Mob/mr_onion.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Character/Mob/crazy_squash.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Character/NPCs/nurse_stand.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/HudAndUtilities/Store_Area.tscn" type="PackedScene" id=14]
+[ext_resource path="res://MyResources/Level_Item_Pool/DrugStoreGoods001.res" type="Resource" id=15]
+
+[sub_resource type="PlaneMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+flags_disable_ambient_light = true
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+flags_disable_ambient_light = true
+albedo_texture = ExtResource( 5 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 8, 8, 8 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 15, 8, 15 )
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 33, 6, 5 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 4, 6, 24 )
+
+[sub_resource type="Curve3D" id=9]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -52.926, 0, -7.83182, 0, 0, 0, 0, 0, 0, -6.38207, 0, -8.07256, 0, 0, 0, 0, 0, 0, -7.10431, 0, 7.89684, 0, 0, 0, 0, 0, 0, -52.6853, 0, 7.89684, 0, 0, 0, 0, 0, 0, -52.926, 0, -7.83182 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=10]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -69.5748, 0, -19.5657, 0, 0, 0, 0, 0, 0, -54.5764, 0, -19.9785, 0, 0, 0, 0, 0, 0, -54.8516, 0, 8.02308, 0, 0, 0, 0, 0, 0, -69.7247, 0.0500488, 7.75659, 0, 0, 0, 0, 0, 0, -69.5748, 0, -19.5657, 0, 0, 0, 0, 0, 0, -69.5748, 0, -19.5657 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Environment" id=3]
+background_mode = 1
+background_color = Color( 0.392157, 0.584314, 0.929412, 1 )
+background_energy = 0.0
+
+[node name="Level_CityB01" type="Spatial"]
+script = ExtResource( 1 )
+Pool_Item = ExtResource( 2 )
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 3 )
+cell_size = Vector3( 1, 1, 1 )
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+collision_layer = 0
+collision_mask = 0
+data = {
+"cells": PoolIntArray( 2, 0, 1441793, 6, 0, 1048577, 65462, 0, 41, 65466, 0, 655400, 65470, 0, 0, 65474, 0, 0, 65478, 0, 0, 65482, 0, 0, 65486, 0, 1441792, 65490, 0, 1048577, 65494, 0, 1048577, 65498, 0, 1441795, 65502, 0, 1441795, 65506, 0, 1441793, 65510, 0, 1441793, 65514, 0, 1441793, 65518, 0, 1441793, 65522, 0, 1441793, 65526, 0, 1441793, 65530, 0, 1441793, 65534, 0, 1441793, 196532, 0, 1245210, 458676, 0, 1245212, 720820, 0, 1245212, 2, 4, 1441792, 6, 4, 1048576, 65462, 4, 41, 65466, 4, 655400, 65470, 4, 2, 65474, 4, 0, 65478, 4, 0, 65482, 4, 0, 65486, 4, 1048576, 65490, 4, 1048576, 65494, 4, 1048576, 65498, 4, 1048579, 65502, 4, 1048579, 65506, 4, 1048576, 65510, 4, 0, 65514, 4, 0, 65518, 4, 1441794, 65522, 4, 1441792, 65526, 4, 1441792, 65530, 4, 1441792, 65534, 4, 1441792, 196532, 4, 1245210, 458676, 4, 1245212, 720820, 4, 1245212, 2, 8, 1441832, 6, 8, 1441832, 65462, 8, 41, 65466, 8, 655433, 65470, 8, 1441832, 65474, 8, 1441832, 65478, 8, 1441832, 65482, 8, 1441832, 65486, 8, 1441832, 65490, 8, 1441832, 65494, 8, 1441832, 65498, 8, 1441831, 65502, 8, 1441831, 65506, 8, 1441832, 65510, 8, 1441832, 65514, 8, 1441832, 65518, 8, 1441832, 65522, 8, 1441832, 65526, 8, 1441832, 65530, 8, 1441832, 65534, 8, 1441832, 196532, 8, 1245213, 458676, 8, 1245212, 720820, 8, 1245212, 982958, 10, 917565, 982962, 10, 917565, 2, 12, 1048617, 6, 12, 1048617, 65462, 12, 41, 65466, 12, 41, 65470, 12, 41, 65474, 12, 41, 65478, 12, 41, 65482, 12, 41, 65486, 12, 41, 65490, 12, 41, 65494, 12, 41, 65498, 12, 41, 65502, 12, 41, 65506, 12, 41, 65510, 12, 41, 65514, 12, 41, 65518, 12, 41, 65522, 12, 41, 65526, 12, 41, 65530, 12, 41, 65534, 12, 41, 196532, 12, 1245246, 458676, 12, 1245246, 720820, 12, 1245246, 982964, 12, 1245245, 131074, 14, 852022, 131078, 14, 852022, 196534, 14, 917566, 196538, 14, 917564, 196542, 14, 917559, 196546, 14, 917563, 196550, 14, 917562, 196554, 14, 917529, 196558, 14, 917528, 196562, 14, 917524, 196566, 14, 917549, 196570, 14, 917549, 196574, 14, 917527, 196578, 14, 917529, 196582, 14, 917529, 196586, 14, 852022, 196590, 14, 852022, 196602, 14, 917556, 196606, 14, 917554, 393218, 14, 852022, 393222, 14, 852022, 458678, 14, 917566, 458682, 14, 917565, 458686, 14, 917565, 458690, 14, 917565, 458694, 14, 917565, 458698, 14, 917529, 458702, 14, 917549, 458706, 14, 917550, 458710, 14, 917550, 458714, 14, 917549, 458718, 14, 917526, 458722, 14, 917529, 458726, 14, 917529, 458730, 14, 917557, 458734, 14, 917557, 458746, 14, 917556, 458750, 14, 917556, 655362, 14, 917557, 655366, 14, 917557, 720822, 14, 917566, 720826, 14, 917565, 720830, 14, 917565, 720834, 14, 917565, 720838, 14, 917565, 720842, 14, 917549, 720846, 14, 917549, 720850, 14, 917550, 720854, 14, 917550, 720858, 14, 917549, 720862, 14, 917549, 720866, 14, 917550, 720870, 14, 917550, 720874, 14, 917557, 720878, 14, 917557, 720890, 14, 917557, 720894, 14, 917557, 982966, 14, 917561, 982970, 14, 917564, 982974, 14, 917561, 982978, 14, 917564, 982982, 14, 917561, 65522, 16, 655428, 65526, 16, 655428, 196592, 16, 1245238, 196600, 16, 1507382, 458736, 16, 1245238, 458744, 16, 1507382, 720880, 16, 1245238, 720888, 16, 1507382, 982984, 16, 1245246, 196594, 18, 917551, 196598, 18, 917551, 458738, 18, 917553, 458742, 18, 917556, 720882, 18, 917556, 720886, 18, 917553, 982984, 20, 1245246, 65462, 65508, 655401, 65466, 65508, 655400, 65470, 65508, 655360, 65474, 65508, 655361, 65478, 65508, 655360, 65482, 65508, 40, 65486, 65508, 655401, 196532, 65508, 1245209, 196560, 65508, 1507382, 458676, 65508, 1245209, 458704, 65508, 1507377, 720820, 65508, 1245206, 720848, 65508, 1507377, 982964, 65508, 1245230, 982992, 65508, 1507381, 196578, 65510, 262175, 196582, 65510, 262170, 196586, 65510, 262170, 196590, 65510, 327711, 65462, 65512, 655401, 65466, 65512, 655400, 65470, 65512, 655360, 65474, 65512, 655361, 65478, 65512, 655360, 65482, 65512, 40, 65486, 65512, 655401, 65506, 65512, 79, 65510, 65512, 655428, 65514, 65512, 1048644, 65518, 65512, 79, 196532, 65512, 1245209, 196560, 65512, 1507382, 196576, 65512, 1245215, 196592, 65512, 65567, 327650, 65512, 1179679, 327654, 65512, 1179679, 327658, 65512, 1179679, 327662, 65512, 1179679, 458676, 65512, 1245209, 458704, 65512, 1507377, 720820, 65512, 1245206, 720848, 65512, 1507377, 982964, 65512, 1245230, 982992, 65512, 1507381, 458722, 65514, 262188, 458726, 65514, 262188, 458730, 65514, 262188, 458734, 65514, 262188, 720866, 65514, 262188, 720870, 65514, 262188, 720874, 65514, 262188, 720878, 65514, 262188, 983010, 65514, 262188, 983014, 65514, 262188, 983018, 65514, 262188, 983022, 65514, 262188, 65462, 65516, 41, 65466, 65516, 655400, 65470, 65516, 655360, 65474, 65516, 655361, 65478, 65516, 655360, 65482, 65516, 40, 65486, 65516, 41, 65506, 65516, 79, 65510, 65516, 1048644, 65514, 65516, 1048644, 65518, 65516, 79, 196532, 65516, 1245209, 196560, 65516, 1507359, 196576, 65516, 1245215, 196592, 65516, 65567, 458676, 65516, 1245230, 458704, 65516, 1507359, 458720, 65516, 1245227, 458736, 65516, 1507371, 720820, 65516, 1245230, 720848, 65516, 1507371, 720864, 65516, 1245228, 720880, 65516, 1507372, 982964, 65516, 1245230, 982992, 65516, 1507371, 983008, 65516, 1245227, 983024, 65516, 1507371, 65462, 65520, 41, 65466, 65520, 655400, 65470, 65520, 655360, 65474, 65520, 655361, 65478, 65520, 655360, 65482, 65520, 40, 65486, 65520, 41, 65506, 65520, 79, 65510, 65520, 1048644, 65514, 65520, 68, 65518, 65520, 79, 196532, 65520, 1245205, 196560, 65520, 1507359, 196576, 65520, 1245215, 196592, 65520, 65567, 458676, 65520, 1245230, 458704, 65520, 1507356, 458720, 65520, 1245228, 458736, 65520, 1507372, 720820, 65520, 1245230, 720848, 65520, 1507371, 720864, 65520, 1245227, 720880, 65520, 1507371, 982964, 65520, 1245230, 982992, 65520, 1507372, 983008, 65520, 1245228, 983024, 65520, 1507372, 131074, 65522, 262167, 131078, 65522, 262169, 196562, 65522, 262175, 196566, 65522, 262175, 196570, 65522, 262175, 196574, 65522, 262175, 196594, 65522, 327711, 196598, 65522, 327711, 196602, 65522, 327711, 196606, 65522, 327711, 393218, 65522, 262169, 393222, 65522, 262169, 458706, 65522, 262187, 458710, 65522, 262172, 458714, 65522, 262187, 458718, 65522, 262172, 458738, 65522, 262172, 458742, 65522, 262187, 458746, 65522, 262172, 458750, 65522, 262187, 655362, 65522, 262169, 655366, 65522, 262169, 720850, 65522, 262188, 720854, 65522, 262188, 720858, 65522, 262188, 720862, 65522, 262188, 720882, 65522, 262188, 720886, 65522, 262188, 720890, 65522, 262187, 720894, 65522, 262187, 982994, 65522, 262188, 982998, 65522, 262188, 983002, 65522, 262188, 983006, 65522, 262188, 983026, 65522, 262188, 983030, 65522, 262188, 983034, 65522, 262188, 983038, 65522, 262188, 2, 65524, 1048617, 6, 65524, 1048617, 65462, 65524, 41, 65466, 65524, 655400, 65470, 65524, 655360, 65474, 65524, 655361, 65478, 65524, 655360, 65482, 65524, 40, 65486, 65524, 41, 65490, 65524, 41, 65494, 65524, 41, 65498, 65524, 41, 65502, 65524, 41, 65506, 65524, 41, 65510, 65524, 41, 65514, 65524, 41, 65518, 65524, 41, 65522, 65524, 41, 65526, 65524, 41, 65530, 65524, 41, 65534, 65524, 41, 196532, 65524, 1245209, 458676, 65524, 1245230, 720820, 65524, 1245230, 982964, 65524, 1245230, 2, 65528, 1048616, 6, 65528, 1048616, 65462, 65528, 41, 65466, 65528, 655400, 65470, 65528, 655360, 65474, 65528, 655360, 65478, 65528, 1441792, 65482, 65528, 1048618, 65486, 65528, 1048616, 65490, 65528, 1048616, 65494, 65528, 1048616, 65498, 65528, 1048615, 65502, 65528, 1048615, 65506, 65528, 1048616, 65510, 65528, 1048616, 65514, 65528, 1048616, 65518, 65528, 1048616, 65522, 65528, 1048616, 65526, 65528, 1048616, 65530, 65528, 1048616, 65534, 65528, 1048616, 196532, 65528, 1245209, 458676, 65528, 1245209, 720820, 65528, 1245209, 982964, 65528, 1245209, 982958, 65530, 262169, 982962, 65530, 262169, 2, 65532, 1441792, 6, 65532, 1048576, 65462, 65532, 41, 65466, 65532, 655400, 65470, 65532, 0, 65474, 65532, 0, 65478, 65532, 0, 65482, 65532, 0, 65486, 65532, 1048576, 65490, 65532, 1048576, 65494, 65532, 1048576, 65498, 65532, 1048579, 65502, 65532, 1048579, 65506, 65532, 1441792, 65510, 65532, 1441792, 65514, 65532, 1441792, 65518, 65532, 1441792, 65522, 65532, 1441792, 65526, 65532, 1441792, 65530, 65532, 1441792, 65534, 65532, 1441792, 196532, 65532, 1245227, 458676, 65532, 1245212, 720820, 65532, 1245212 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
+
+[node name="Props" type="Spatial" parent="."]
+
+[node name="endBlock01" type="MeshInstance" parent="Props"]
+transform = Transform( 14.5, 0, 0, 0, -4.37114e-08, -8, 0, 1, -3.49691e-07, -62.0338, 7.91099, -29.7936 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="endBlock02" type="MeshInstance" parent="Props"]
+transform = Transform( -6.33815e-07, -1, 2.78004e-07, 0, -4.37114e-08, -6.36, 14.5, -4.37114e-08, 1.2152e-14, 7.99141, 6.09693, 0.107214 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 4 )
+
+[node name="Far_Building_006" parent="Props" instance=ExtResource( 6 )]
+transform = Transform( -1, 0, 1.50996e-07, 0, 0.74, 0, -1.50996e-07, 0, -1, 4.59349, 6.55325, 23.5992 )
+
+[node name="Far_Building_003" parent="Props" instance=ExtResource( 7 )]
+transform = Transform( -1, 0, -1.50996e-07, 0, 0.68, 0, 1.50996e-07, 0, -1, 11.4698, 7.06376, -19.2465 )
+
+[node name="Far_Building_004" parent="Props" instance=ExtResource( 8 )]
+transform = Transform( -3.23464e-08, 0, 1.46, 0, 0.7, 0, -0.74, 0, -6.38186e-08, -90.1951, 11.9603, -26.4298 )
+
+[node name="nurse_stand" parent="Props" instance=ExtResource( 13 )]
+transform = Transform( 0.581015, 0, 0.813892, 0, 1, 0, -0.813892, 0, 0.581015, -31.187, 0, -18.8907 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+collision_layer = 2
+collision_mask = 0
+input_ray_pickable = false
+
+[node name="CollisionShape7" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 8, -22 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1479, 8, 26.0202 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 8, -22 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 8, -34 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 22 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62, 8, -37.05 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 8, 0 )
+shape = SubResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49, 6, 19 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 6, -8 )
+shape = SubResource( 8 )
+
+[node name="door" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4, -1.12175, 0.0456543, 0 )
+go_to_map = "res://Scenes/Worlds/Junction.tscn"
+spawn_point = Vector3( -30, 0, -5 )
+map_name = "Junction"
+
+[node name="Path_of_Enemy" type="Path" parent="."]
+curve = SubResource( 9 )
+script = ExtResource( 10 )
+
+[node name="PathFollow" type="PathFollow" parent="Path_of_Enemy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.926, 0, -7.83182 )
+rotation_mode = 0
+cubic_interp = false
+
+[node name="Mr_Onion" parent="Path_of_Enemy" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.3622, 0, 3.52197 )
+
+[node name="Mr_Onion3" parent="Path_of_Enemy" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.6072, 0, -0.871094 )
+
+[node name="Mr_Onion2" parent="Path_of_Enemy" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.8617, 0, -7.50635 )
+
+[node name="Mr_Onion4" parent="Path_of_Enemy" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37.9523, 0, -7.50635 )
+
+[node name="MrPumpkin" parent="Path_of_Enemy" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.7356, 0, -5.19757 )
+
+[node name="MrPumpkin2" parent="Path_of_Enemy" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.8815, 0, 0.286804 )
+
+[node name="Path_of_Enemy2" type="Path" parent="."]
+curve = SubResource( 10 )
+script = ExtResource( 10 )
+
+[node name="PathFollow" type="PathFollow" parent="Path_of_Enemy2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -69.5748, 0, -19.5657 )
+rotation_mode = 0
+cubic_interp = false
+
+[node name="MrPumpkin" parent="Path_of_Enemy2" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -63.013, 0, -17.193 )
+
+[node name="MrPumpkin2" parent="Path_of_Enemy2" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -63.013, 0, 2.16265 )
+
+[node name="Mr_Onion" parent="Path_of_Enemy2" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -58.153, 0, -9.64685 )
+
+[node name="Store_Area" parent="." instance=ExtResource( 14 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30.7273, 0.130868, -18.7119 )
+store_name = "Nurse Yuka"
+store_profit = 25
+is_buying = false
+goods = ExtResource( 15 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 3 )

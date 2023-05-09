@@ -1,0 +1,253 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Scripts/store.gd" type="Script" id=1]
+[ext_resource path="res://MyResources/Level_Item_Pool/BakeryGoods001.res" type="Resource" id=2]
+[ext_resource path="res://Assets/Hud/bg_002.png" type="Texture" id=3]
+[ext_resource path="res://MyResources/DynamicFonts/Kenney_Mini_S8.res" type="DynamicFont" id=4]
+[ext_resource path="res://MyResources/ThemesFolder/focusButton.stylebox" type="StyleBox" id=5]
+[ext_resource path="res://MyResources/ThemesFolder/yellowdButton.stylebox" type="StyleBox" id=6]
+[ext_resource path="res://Assets/Hud/bg_003.png" type="Texture" id=7]
+[ext_resource path="res://MyResources/DynamicFonts/Kenney_Mini_s16.res" type="DynamicFont" id=8]
+[ext_resource path="res://Scenes/HudAndUtilities/All_Icons.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Icons/attrib_icons.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Icons/restore_icons.png" type="Texture" id=11]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.99989, 1, 1 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 4, 2, 2 )
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+flags_disable_ambient_light = true
+albedo_color = Color( 0.192157, 0.662745, 0, 0.584314 )
+
+[node name="Store_Area" type="Area"]
+collision_layer = 0
+input_ray_pickable = false
+monitorable = false
+script = ExtResource( 1 )
+goods = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00321, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98832, 0 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="Front_Store_BG" type="TextureRect" parent="CanvasLayer"]
+visible = false
+margin_left = 141.0
+margin_top = 28.0
+margin_right = 220.0
+margin_bottom = 144.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Front_Store_BG"]
+margin_left = 2.0
+margin_top = 12.0
+margin_right = 77.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 4 )
+text = "Bakery"
+align = 1
+autowrap = true
+
+[node name="talk_button" type="Button" parent="CanvasLayer/Front_Store_BG"]
+margin_left = 5.64403
+margin_top = 40.9686
+margin_right = 73.644
+margin_bottom = 58.9686
+custom_fonts/font = ExtResource( 4 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 6 )
+text = "Talk"
+
+[node name="buy_button" type="Button" parent="CanvasLayer/Front_Store_BG"]
+margin_left = 6.28795
+margin_top = 63.7203
+margin_right = 74.2879
+margin_bottom = 81.7203
+custom_fonts/font = ExtResource( 4 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 6 )
+text = "Buy"
+
+[node name="sell_button" type="Button" parent="CanvasLayer/Front_Store_BG"]
+margin_left = 5.85867
+margin_top = 87.2415
+margin_right = 73.8587
+margin_bottom = 105.241
+custom_fonts/font = ExtResource( 4 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 6 )
+text = "Sell"
+
+[node name="Store_BG" type="TextureRect" parent="CanvasLayer"]
+visible = false
+margin_left = -0.418121
+margin_right = 359.582
+margin_bottom = 180.0
+texture = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="CanvasLayer/Store_BG"]
+margin_left = 34.3778
+margin_top = 59.7787
+margin_right = 118.378
+margin_bottom = 79.7787
+custom_fonts/font = ExtResource( 8 )
+
+[node name="debug_label" type="Label" parent="CanvasLayer/Store_BG"]
+margin_left = 13.0
+margin_top = 87.0
+margin_right = 111.0
+margin_bottom = 98.0
+custom_fonts/font = ExtResource( 4 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Store_BG"]
+margin_left = 239.0
+margin_top = 7.0
+margin_right = 348.0
+margin_bottom = 172.0
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Store_BG/ScrollContainer"]
+margin_right = 90.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 90, 38 )
+
+[node name="store_close_button" type="Button" parent="CanvasLayer/Store_BG"]
+margin_left = 5.49764
+margin_top = 60.6467
+margin_right = 28.4976
+margin_bottom = 80.6467
+custom_fonts/font = ExtResource( 8 )
+custom_styles/normal = ExtResource( 6 )
+shortcut_in_tooltip = false
+text = " X"
+
+[node name="Item_Stat_BG" type="TextureRect" parent="CanvasLayer/Store_BG"]
+visible = false
+margin_left = 128.945
+margin_top = 7.32598
+margin_right = 234.945
+margin_bottom = 172.326
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Label" type="Label" parent="CanvasLayer/Store_BG/Item_Stat_BG"]
+margin_left = 36.3653
+margin_top = 27.7473
+margin_right = 60.3653
+margin_bottom = 38.7473
+custom_fonts/font = ExtResource( 4 )
+text = "price:"
+valign = 1
+clip_text = true
+
+[node name="name_label" type="Label" parent="CanvasLayer/Store_BG/Item_Stat_BG"]
+margin_left = 4.85391
+margin_top = 9.42696
+margin_right = 101.854
+margin_bottom = 23.427
+custom_fonts/font = ExtResource( 4 )
+valign = 1
+clip_text = true
+
+[node name="count_label" type="Label" parent="CanvasLayer/Store_BG/Item_Stat_BG"]
+margin_left = 36.3222
+margin_top = 40.4184
+margin_right = 102.322
+margin_bottom = 51.4184
+custom_fonts/font = ExtResource( 4 )
+valign = 1
+clip_text = true
+
+[node name="price_label" type="Label" parent="CanvasLayer/Store_BG/Item_Stat_BG"]
+margin_left = 62.0
+margin_top = 28.0
+margin_right = 103.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 4 )
+valign = 1
+clip_text = true
+
+[node name="all_icons" parent="CanvasLayer/Store_BG/Item_Stat_BG" instance=ExtResource( 9 )]
+position = Vector2( 16.3514, 37.9585 )
+
+[node name="attrib_icons" type="Sprite" parent="CanvasLayer/Store_BG/Item_Stat_BG"]
+position = Vector2( 9.20966, 72.2473 )
+texture = ExtResource( 10 )
+
+[node name="restore_icons" type="Sprite" parent="CanvasLayer/Store_BG/Item_Stat_BG"]
+position = Vector2( 9.35028, 72.0923 )
+texture = ExtResource( 11 )
+
+[node name="x_prop_label" type="Label" parent="CanvasLayer/Store_BG/Item_Stat_BG"]
+margin_left = 21.531
+margin_top = 56.6799
+margin_right = 64.531
+margin_bottom = 70.6799
+custom_colors/font_color = Color( 0.847059, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+
+[node name="y_prop_label" type="Label" parent="CanvasLayer/Store_BG/Item_Stat_BG"]
+margin_left = 22.2901
+margin_top = 67.4118
+margin_right = 65.2901
+margin_bottom = 81.4118
+custom_colors/font_color = Color( 0.0666667, 1, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+
+[node name="z_prop_label" type="Label" parent="CanvasLayer/Store_BG/Item_Stat_BG"]
+margin_left = 22.2901
+margin_top = 77.1543
+margin_right = 65.2901
+margin_bottom = 91.1543
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 4 )
+
+[node name="description_label" type="Label" parent="CanvasLayer/Store_BG/Item_Stat_BG"]
+margin_left = 5.0
+margin_top = 98.0
+margin_right = 102.0
+margin_bottom = 160.0
+custom_fonts/font = ExtResource( 4 )
+autowrap = true
+clip_text = true
+
+[node name="buy_one_button" type="Button" parent="CanvasLayer/Store_BG/Item_Stat_BG"]
+margin_left = -118.638
+margin_top = 98.8048
+margin_right = -71.6378
+margin_bottom = 118.805
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = ExtResource( 6 )
+text = "Buy"
+
+[node name="buy_ten_button" type="Button" parent="CanvasLayer/Store_BG/Item_Stat_BG"]
+margin_left = -64.8809
+margin_top = 99.1683
+margin_right = -17.8809
+margin_bottom = 119.168
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = ExtResource( 6 )
+text = "Buy 10"
+
+[connection signal="body_entered" from="." to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_area_body_exited"]
+[connection signal="button_up" from="CanvasLayer/Front_Store_BG/buy_button" to="." method="_on_buy_button_button_up"]
+[connection signal="button_up" from="CanvasLayer/Front_Store_BG/sell_button" to="." method="_on_sell_button_button_up"]
+[connection signal="button_up" from="CanvasLayer/Store_BG/store_close_button" to="." method="_on_store_close_button_button_up"]
+[connection signal="button_up" from="CanvasLayer/Store_BG/Item_Stat_BG/buy_one_button" to="." method="_on_buy_one_button_button_up"]
+[connection signal="button_up" from="CanvasLayer/Store_BG/Item_Stat_BG/buy_ten_button" to="." method="_on_buy_ten_button_button_up"]

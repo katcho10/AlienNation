@@ -1,0 +1,190 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Scripts/level_map.gd" type="Script" id=1]
+[ext_resource path="res://MyResources/Level_Item_Pool/Pool001.res" type="Resource" id=2]
+[ext_resource path="res://MyResources/MeshLibraries/city_tiles01.meshlib" type="MeshLibrary" id=3]
+[ext_resource path="res://Scenes/MapProps/City/tunnel_brace.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/zone_path.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/Character/Mob/robo_drone.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Character/Mob/crazy_squash.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/HudAndUtilities/Door.tscn" type="PackedScene" id=8]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 12, 4, 32 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 5, 4, 12 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 15, 4, 7 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 7, 4, 2 )
+
+[sub_resource type="Curve3D" id=5]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 27.0762, 0, -90.669, 0, 0, 0, 0, 0, 0, 26.7903, 0, -59.7815, 0, 0, 0, 0, 0, 0, 21.6447, 0, -60.3093, 0, 0, 0, 0, 0, 0, 21.4601, 0, -90.9159, 0, 0, 0, 0, 0, 0, 27.0762, 0, -90.669 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=7]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 9.05914, 0, -90.0054, 0, 0, 0, 0, 0, 0, 9.14311, 0, -58.2672, 0, 0, 0, 0, 0, 0, 15.1045, 0, -58.2672, 0, 0, 0, 0, 0, 0, 14.1809, 0, -90.1733, 0, 0, 0, 0, 0, 0, 9.05914, 0, -90.0054 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=8]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -3.44839, 0, -33.0641, 0, 0, 0, 0, 0, 0, -3.44839, 0, -6.21195, 0, 0, 0, 0, 0, 0, 3.31751, 0, -7.05769, 0, 0, 0, 0, 0, 0, 2.6832, 0, -33.6984, 0, 0, 0, 0, 0, 0, 2.26034, 0, -61.6078, 0, 0, 0, 0, 0, 0, 1.83747, 0, -89.7286, 0, 0, 0, 0, 0, 0, -3.44839, 0, -90.1515, 0, 0, 0, 0, 0, 0, -3.23697, 0, -62.4536, 0, 0, 0, 0, 0, 0, -3.44839, 0, -33.0641 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Environment" id=6]
+background_mode = 1
+background_color = Color( 0.113725, 0.113725, 0.113725, 1 )
+background_energy = 0.0
+
+[node name="Level_Tunnel01" type="Spatial"]
+script = ExtResource( 1 )
+Pool_Item = ExtResource( 2 )
+gold_max_aquired = 70
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 3 )
+cell_size = Vector3( 1, 1, 1 )
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+collision_layer = 0
+collision_mask = 0
+data = {
+"cells": PoolIntArray( 458746, 0, 1245253, 0, 2, 1, 4, 2, 40, 65532, 2, 655400, 131078, 2, 1507392, 196602, 2, 1245248, 393222, 4, 1507394, 0, 6, 655361, 4, 6, 40, 65532, 6, 655400, 131078, 6, 1507393, 196602, 6, 1245248, 458746, 6, 1245256, 20, 65434, 655400, 24, 65434, 1, 28, 65434, 40, 131090, 65434, 1245248, 131102, 65434, 1507392, 393234, 65434, 1245256, 393246, 65436, 1507394, 20, 65438, 655400, 24, 65438, 1, 28, 65438, 40, 131090, 65438, 1245249, 131102, 65438, 1507393, 393234, 65440, 1245253, 20, 65442, 655400, 24, 65442, 1, 28, 65442, 40, 131090, 65442, 1245247, 131102, 65442, 1507391, 131072, 65444, 262209, 131076, 65444, 262208, 131080, 65444, 262208, 131084, 65444, 262208, 131088, 65444, 262207, 196604, 65444, 262207, 393222, 65444, 262213, 393230, 65444, 262213, 393246, 65444, 1507394, 458750, 65444, 262213, 0, 65446, 1048616, 4, 65446, 1048616, 8, 65446, 1048616, 12, 65446, 1048616, 16, 65446, 1048616, 20, 65446, 655402, 24, 65446, 0, 28, 65446, 40, 65532, 65446, 1048649, 131102, 65446, 1507392, 196602, 65446, 1245247, 458746, 65448, 1245253, 0, 65450, 1048576, 4, 65450, 0, 8, 65450, 0, 12, 65450, 1441792, 16, 65450, 1441792, 20, 65450, 1441792, 24, 65450, 1441794, 28, 65450, 40, 65532, 65450, 655400, 131102, 65450, 1507392, 196602, 65450, 1245248, 393246, 65452, 1507394, 0, 65454, 1048576, 4, 65454, 42, 8, 65454, 1441834, 12, 65454, 0, 16, 65454, 42, 20, 65454, 1441834, 24, 65454, 0, 28, 65454, 40, 65532, 65454, 655400, 131102, 65454, 1507392, 196602, 65454, 1245248, 458746, 65456, 1245253, 0, 65458, 1048576, 4, 65458, 1048618, 8, 65458, 655402, 12, 65458, 0, 16, 65458, 1048618, 20, 65458, 655402, 24, 65458, 0, 28, 65458, 40, 65532, 65458, 655400, 131102, 65458, 1507393, 196602, 65458, 1245248, 393246, 65460, 1507394, 0, 65462, 1048576, 4, 65462, 2, 8, 65462, 0, 12, 65462, 0, 16, 65462, 0, 20, 65462, 0, 24, 65462, 0, 28, 65462, 40, 65532, 65462, 655400, 131102, 65462, 1507391, 196602, 65462, 1245247, 458746, 65464, 1245253, 0, 65466, 0, 4, 65466, 42, 8, 65466, 1441834, 12, 65466, 0, 16, 65466, 42, 20, 65466, 1441834, 24, 65466, 1048576, 28, 65466, 40, 65532, 65466, 655400, 131102, 65466, 1507392, 196602, 65466, 1245249, 393246, 65468, 1507394, 0, 65470, 0, 4, 65470, 1048618, 8, 65470, 655402, 12, 65470, 0, 16, 65470, 1048618, 20, 65470, 655402, 24, 65470, 1048576, 28, 65470, 40, 65532, 65470, 655400, 131102, 65470, 1507392, 196602, 65470, 1245248, 458746, 65472, 1245253, 0, 65474, 655360, 4, 65474, 0, 8, 65474, 655360, 12, 65474, 0, 16, 65474, 0, 20, 65474, 0, 24, 65474, 0, 28, 65474, 40, 65532, 65474, 655400, 131102, 65474, 1507392, 196602, 65474, 1245248, 393246, 65476, 1507394, 0, 65478, 655360, 4, 65478, 42, 8, 65478, 1441832, 12, 65478, 1441832, 16, 65478, 1441832, 20, 65478, 1441832, 24, 65478, 1441832, 28, 65478, 1441865, 65532, 65478, 655400, 131102, 65478, 1507391, 196602, 65478, 1245248, 131080, 65480, 917568, 131084, 65480, 917568, 131088, 65480, 917568, 131092, 65480, 917568, 131096, 65480, 917569, 131100, 65480, 917567, 393226, 65480, 917570, 393234, 65480, 917570, 393242, 65480, 917570, 458746, 65480, 1245253, 0, 65482, 655361, 4, 65482, 40, 65532, 65482, 655400, 131078, 65482, 1507391, 196602, 65482, 1245247, 393222, 65484, 1507394, 0, 65486, 655361, 4, 65486, 40, 65532, 65486, 655400, 131078, 65486, 1507393, 196602, 65486, 1245249, 458746, 65488, 1245253, 0, 65490, 655361, 4, 65490, 40, 65532, 65490, 655400, 131078, 65490, 1507392, 196602, 65490, 1245248, 393222, 65492, 1507394, 0, 65494, 655361, 4, 65494, 40, 65532, 65494, 655400, 131078, 65494, 1507392, 196602, 65494, 1245248, 458746, 65496, 1245253, 0, 65498, 655361, 4, 65498, 40, 65532, 65498, 655400, 131078, 65498, 1507392, 196602, 65498, 1245248, 393222, 65500, 1507394, 0, 65502, 655361, 4, 65502, 40, 65532, 65502, 655400, 131078, 65502, 1507391, 196602, 65502, 1245249, 458746, 65504, 1245253, 0, 65506, 655361, 4, 65506, 40, 65532, 65506, 655400, 131078, 65506, 1507393, 196602, 65506, 1245247, 196596, 65508, 262208, 196600, 65508, 262207, 393222, 65508, 1507394, 458742, 65508, 262213, 0, 65510, 655361, 4, 65510, 40, 65524, 65510, 1048649, 65528, 65510, 1048616, 65532, 65510, 655402, 131078, 65510, 1507392, 196594, 65510, 1245255, 458738, 65512, 1245253, 0, 65514, 655361, 4, 65514, 40, 65524, 65514, 655400, 65528, 65514, 655360, 65532, 65514, 655360, 131078, 65514, 1507392, 196594, 65514, 1245254, 393222, 65516, 1507394, 0, 65518, 655361, 4, 65518, 40, 65524, 65518, 655400, 65528, 65518, 655360, 65532, 65518, 655360, 131078, 65518, 1507392, 196594, 65518, 1245248, 458738, 65520, 1245253, 0, 65522, 655361, 4, 65522, 40, 65524, 65522, 655433, 65528, 65522, 1441832, 65532, 65522, 1441834, 131078, 65522, 1507391, 196594, 65522, 1245255, 196596, 65524, 917568, 196600, 65524, 917567, 393222, 65524, 1507394, 458742, 65524, 917573, 0, 65526, 1, 4, 65526, 40, 65532, 65526, 655400, 131078, 65526, 1507393, 196602, 65526, 1245247, 458746, 65528, 1245253, 0, 65530, 1, 4, 65530, 40, 65532, 65530, 655400, 131078, 65530, 1507392, 196602, 65530, 1245249, 393222, 65532, 1507394, 0, 65534, 1, 4, 65534, 40, 65532, 65534, 655400, 131078, 65534, 1507392, 196602, 65534, 1245248 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 6, 0 )
+}
+
+[node name="StaticBody" type="StaticBody" parent="."]
+collision_layer = 2
+collision_mask = 0
+input_ray_pickable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18, 4, -24 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18, 4, -60 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 42, 4, -80 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 4, 0 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 4, -20 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 4, -99 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 8.01027 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8817, 4, -102.009 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape9" parent="StaticBody" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.97251, 0, -79.9459 )
+
+[node name="CollisionShape12" parent="StaticBody" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.97251, 0, -68.0058 )
+
+[node name="CollisionShape10" parent="StaticBody" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0023, 0, -79.9459 )
+
+[node name="CollisionShape11" parent="StaticBody" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0023, 0, -68.0058 )
+
+[node name="Path_of_Enemy" type="Path" parent="."]
+curve = SubResource( 5 )
+script = ExtResource( 5 )
+
+[node name="PathFollow" type="PathFollow" parent="Path_of_Enemy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.0762, 0, -90.669 )
+rotation_mode = 0
+cubic_interp = false
+
+[node name="Drone" parent="Path_of_Enemy" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2381, 0, -62.6529 )
+
+[node name="Drone2" parent="Path_of_Enemy" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25.8901, 0, -73.4968 )
+
+[node name="Drone3" parent="Path_of_Enemy" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.716, 0, -83.5832 )
+
+[node name="Path_of_Enemy2" type="Path" parent="."]
+curve = SubResource( 7 )
+script = ExtResource( 5 )
+
+[node name="PathFollow" type="PathFollow" parent="Path_of_Enemy2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.05914, 0, -90.0054 )
+rotation_mode = 0
+cubic_interp = false
+
+[node name="Drone" parent="Path_of_Enemy2" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8876, 0, -83.5576 )
+
+[node name="MrPumpkin" parent="Path_of_Enemy2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3702, 0, -67.6882 )
+
+[node name="Path_of_Enemy3" type="Path" parent="."]
+curve = SubResource( 8 )
+script = ExtResource( 5 )
+
+[node name="PathFollow" type="PathFollow" parent="Path_of_Enemy3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.44839, 0, -33.0641 )
+rotation_mode = 0
+cubic_interp = false
+
+[node name="MrPumpkin" parent="Path_of_Enemy3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86877, 0, -14.5917 )
+
+[node name="MrPumpkin3" parent="Path_of_Enemy3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.836731, 0, -42.1682 )
+
+[node name="MrPumpkin6" parent="Path_of_Enemy3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86877, 0, -71.0447 )
+
+[node name="MrPumpkin2" parent="Path_of_Enemy3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41888, 0, -18.899 )
+
+[node name="MrPumpkin4" parent="Path_of_Enemy3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41888, 0, -51.7158 )
+
+[node name="MrPumpkin5" parent="Path_of_Enemy3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41888, 0, -77.9863 )
+
+[node name="door" parent="." instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 2, 0, 1, 0, -1, 0, -8.74228e-08, 0, -0.0319824, 4.84016 )
+go_to_map = "res://Scenes/Worlds/Junction.tscn"
+spawn_point = Vector3( 7, 0, -20 )
+map_name = "Junction"
+
+[node name="door2" parent="." instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 2, 0, 1, 0, -1, 0, -8.74228e-08, 24.0577, -0.0319824, -98.7129 )
+go_to_map = "res://Scenes/Worlds/Tunnel02.tscn"
+spawn_point = Vector3( -3.245, 0, -4.959 )
+map_name = "Tunnel 1st Corner"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 6 )

@@ -1,0 +1,272 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://MyResources/MeshLibraries/city_tiles01.meshlib" type="MeshLibrary" id=1]
+[ext_resource path="res://Scripts/level_map.gd" type="Script" id=2]
+[ext_resource path="res://MyResources/Level_Item_Pool/Pool001.res" type="Resource" id=3]
+[ext_resource path="res://Assets/Map/jail_bar001.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Map/jail_bar002.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Map/jail_bar003.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/HudAndUtilities/Door.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Character/Mob/mr_rat.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/zone_path.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Character/Mob/skeleton.tscn" type="PackedScene" id=10]
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 10, 2, 2 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 2, 2, 26 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 20, 2, 1 )
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 1, 2, 5 )
+
+[sub_resource type="BoxShape" id=12]
+extents = Vector3( 0.5, 2, 10 )
+
+[sub_resource type="BoxShape" id=13]
+extents = Vector3( 0.5, 2, 4 )
+
+[sub_resource type="QuadMesh" id=2]
+size = Vector2( 8, 4 )
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+flags_disable_ambient_light = true
+params_cull_mode = 2
+albedo_texture = ExtResource( 6 )
+
+[sub_resource type="QuadMesh" id=4]
+size = Vector2( 4, 4 )
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+flags_disable_ambient_light = true
+params_cull_mode = 2
+albedo_texture = ExtResource( 5 )
+
+[sub_resource type="QuadMesh" id=6]
+size = Vector2( 4, 4 )
+
+[sub_resource type="SpatialMaterial" id=7]
+flags_transparent = true
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+flags_disable_ambient_light = true
+params_cull_mode = 2
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="Curve3D" id=14]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -7.38587, 0, 10.5129, 0, 0, 0, 0, 0, 0, 7.42565, 0, 10.5129, 0, 0, 0, 0, 0, 0, 7.42565, 0, 25.1707, 0, 0, 0, 0, 0, 0, -7.28336, 0, 25.2732, 0, 0, 0, 0, 0, 0, -7.38587, 0, 10.5129 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=15]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -6.69628, 0, 52.6373, 0, 0, 0, 0, 0, 0, -6.59103, 0, 42.6742, 0, 0, 0, 0, 0, 0, 6.38905, 0, 42.6041, 0, 0, 0, 0, 0, 0, 6.42413, 0, 52.5672, 0, 0, 0, 0, 0, 0, -6.69628, 0, 52.6373 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_color = Color( 0.113725, 0.113725, 0.113725, 1 )
+background_energy = 0.0
+
+[node name="Level_Basement" type="Spatial"]
+script = ExtResource( 2 )
+Pool_Item = ExtResource( 3 )
+gold_max_aquired = 60
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 1 )
+cell_size = Vector3( 1, 1, 1 )
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+collision_layer = 0
+collision_mask = 0
+data = {
+"cells": PoolIntArray( 131072, 0, 262157, 131080, 0, 262157, 196600, 0, 262157, 196604, 0, 262157, 0, 2, 1441870, 4, 2, 1441871, 8, 2, 1441870, 12, 2, 1048654, 16, 2, 1048654, 65520, 2, 1048654, 65524, 2, 1048654, 65528, 2, 655438, 65532, 2, 1441870, 131090, 2, 1507341, 196590, 2, 1245197, 131072, 4, 917517, 131076, 4, 917517, 131080, 4, 917517, 131088, 4, 917517, 196592, 4, 917517, 196600, 4, 917517, 196604, 4, 917517, 12, 6, 1048654, 65524, 6, 78, 131082, 6, 1245197, 131086, 6, 1507341, 196594, 6, 1245197, 196598, 6, 1507341, 131072, 8, 262157, 131076, 8, 262157, 131080, 8, 262157, 196600, 8, 262157, 196604, 8, 262157, 0, 10, 1048655, 4, 10, 1048655, 8, 10, 1048655, 12, 10, 1048654, 65524, 10, 78, 65528, 10, 1441871, 65532, 10, 1048655, 131086, 10, 1507341, 196594, 10, 1245197, 0, 14, 1441871, 4, 14, 1441870, 8, 14, 79, 12, 14, 1048654, 65524, 14, 1048654, 65528, 14, 1441871, 65532, 14, 78, 131086, 14, 1507341, 196594, 14, 1245197, 0, 18, 1048655, 4, 18, 655439, 8, 18, 1441871, 12, 18, 1441871, 65524, 18, 1441871, 65528, 18, 1048655, 65532, 18, 1048655, 131086, 18, 1507341, 196594, 18, 1245197, 0, 22, 79, 4, 22, 1441870, 8, 22, 1441871, 12, 22, 1048654, 65524, 22, 1048654, 65528, 22, 1048655, 65532, 22, 1441870, 131086, 22, 1507341, 196594, 22, 1245197, 0, 26, 655439, 4, 26, 655439, 8, 26, 1441871, 12, 26, 1048654, 65524, 26, 1048654, 65528, 26, 1048655, 65532, 26, 1048655, 131086, 26, 1507341, 196594, 26, 1245197, 131072, 28, 917517, 131076, 28, 917517, 131080, 28, 917517, 196600, 28, 917517, 196604, 28, 917517, 12, 30, 1048654, 65524, 30, 1048654, 131082, 30, 1245197, 131086, 30, 1507341, 196594, 30, 1245197, 196598, 30, 1507341, 131072, 32, 262157, 131076, 32, 262157, 131080, 32, 262157, 196600, 32, 262157, 196604, 32, 262157, 0, 34, 1441870, 4, 34, 655438, 8, 34, 655438, 12, 34, 655438, 65524, 34, 1048654, 65528, 34, 78, 65532, 34, 1441870, 131086, 34, 1507341, 196594, 34, 1245197, 131072, 36, 917517, 131076, 36, 917517, 131080, 36, 917517, 196600, 36, 917517, 196604, 36, 917517, 12, 38, 655438, 65524, 38, 1048654, 131082, 38, 1245197, 131086, 38, 1507341, 196594, 38, 1245197, 196598, 38, 1507341, 131072, 40, 262157, 131076, 40, 262157, 131080, 40, 262157, 196600, 40, 262157, 196604, 40, 262157, 0, 42, 1048655, 4, 42, 1048655, 8, 42, 1048655, 12, 42, 1441870, 65524, 42, 1441870, 65528, 42, 1048655, 65532, 42, 1048655, 131086, 42, 1507341, 196594, 42, 1245197, 0, 46, 1441871, 4, 46, 79, 8, 46, 79, 12, 46, 1441871, 65524, 46, 1441871, 65528, 46, 1441871, 65532, 46, 1441871, 131086, 46, 1507341, 196594, 46, 1245197, 0, 50, 655439, 4, 50, 655439, 8, 50, 655439, 12, 50, 1441870, 65524, 50, 1441870, 65528, 50, 1048655, 65532, 50, 1048655, 131086, 50, 1507341, 196594, 50, 1245197, 0, 54, 79, 4, 54, 79, 8, 54, 1048655, 12, 54, 1441870, 65524, 54, 1441870, 65528, 54, 1441871, 65532, 54, 1441871, 131086, 54, 1507341, 196594, 54, 1245197, 131072, 56, 917517, 131076, 56, 917517, 131080, 56, 917517, 131084, 56, 917517, 196596, 56, 917517, 196600, 56, 917517, 196604, 56, 917517, 131084, 65532, 262157, 131088, 65532, 262224, 196592, 65532, 262224, 196596, 65532, 262157, 4, 65534, 81, 12, 65534, 655438, 16, 65534, 655438, 65520, 65534, 1048654, 65524, 65534, 1048654, 131074, 65534, 1245263, 131078, 65534, 720975, 131082, 65534, 1245197, 131090, 65534, 1507408, 196590, 65534, 1245264, 196598, 65534, 1507341 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 1, 0 )
+}
+
+[node name="StaticBody" type="StaticBody" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 6 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 30 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 38 )
+shape = SubResource( 8 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 2, 30 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 2, 30 )
+shape = SubResource( 9 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -5 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 57 )
+shape = SubResource( 10 )
+
+[node name="CollisionShape10" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 2, 0.5 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape11" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 19, 2, 0.5 )
+shape = SubResource( 11 )
+
+[node name="CollisionShape12" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.564, 2, 18 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape13" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 2, 47.525 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape14" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 2, 12 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape15" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 2, 24 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape16" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 2, 40.1 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape17" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 2, 52 )
+shape = SubResource( 13 )
+
+[node name="map_props" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="map_props"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.5, 2, 12 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance4" type="MeshInstance" parent="map_props"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.5, 2, 24 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance5" type="MeshInstance" parent="map_props"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.5, 2, 52 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance6" type="MeshInstance" parent="map_props"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.5, 2, 12 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance8" type="MeshInstance" parent="map_props"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.5, 2, 24 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance7" type="MeshInstance" parent="map_props"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.5, 2, 44 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance9" type="MeshInstance" parent="map_props"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.5, 2, 52 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="map_props"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.5, 2, 18 )
+mesh = SubResource( 4 )
+material/0 = SubResource( 5 )
+
+[node name="sJBar" type="MeshInstance" parent="map_props"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.5, 2, 42 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
+
+[node name="Path_of_Enemy" type="Path" parent="."]
+curve = SubResource( 14 )
+script = ExtResource( 9 )
+
+[node name="PathFollow" type="PathFollow" parent="Path_of_Enemy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.38587, 0, 10.5129 )
+rotation_mode = 0
+cubic_interp = false
+
+[node name="mr_rat" parent="Path_of_Enemy" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.23191, 0, 12.4233 )
+
+[node name="mr_rat2" parent="Path_of_Enemy" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.48632, 0, 23.7457 )
+
+[node name="mr_rat3" parent="Path_of_Enemy" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6761, 0, 22.3271 )
+
+[node name="mr_rat4" parent="Path_of_Enemy" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25672, 0, 14.3547 )
+
+[node name="mr_rat5" parent="Path_of_Enemy" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.145059, 0, 19.1096 )
+
+[node name="Path_of_Enemy2" type="Path" parent="."]
+curve = SubResource( 15 )
+script = ExtResource( 9 )
+
+[node name="PathFollow" type="PathFollow" parent="Path_of_Enemy2"]
+rotation_mode = 0
+cubic_interp = false
+
+[node name="mr_rat" parent="Path_of_Enemy2" instance=ExtResource( 8 )]
+transform = Transform( 0.999715, 0, -0.0238913, 0, 1, 0, 0.0238913, 0, 0.999715, -5.91058, 0, 42.6065 )
+
+[node name="Skeleton" parent="Path_of_Enemy2" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.83295, 0, 43.3339 )
+
+[node name="Skeleton2" parent="Path_of_Enemy2" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.35114, 0, 52.8022 )
+
+[node name="Skeleton3" parent="Path_of_Enemy2" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.865328, 0, 48.0064 )
+
+[node name="Skeleton4" parent="Path_of_Enemy2" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.55686, 0, 52.8022 )
+
+[node name="door" parent="." instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.98188, 0, 0.23072 )
+go_to_map = "res://Scenes/Worlds/FirstFloor.tscn"
+spawn_point = Vector3( 8.8, 0, 34 )
+map_name = "Dungeon 1st floor"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )

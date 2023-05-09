@@ -1,0 +1,252 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Scripts/player_inventory.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Icons/MyBag.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Icons/diskette.png" type="Texture" id=3]
+[ext_resource path="res://MyResources/DynamicFonts/Kenney_Mini_S8.res" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/Hud/bg_003.png" type="Texture" id=5]
+[ext_resource path="res://MyResources/DynamicFonts/Kenney_Mini_s16.res" type="DynamicFont" id=6]
+[ext_resource path="res://MyResources/ThemesFolder/pinkdButton.stylebox" type="StyleBox" id=7]
+[ext_resource path="res://MyResources/ThemesFolder/pinkScroll.theme" type="Theme" id=8]
+[ext_resource path="res://Assets/Hud/bg_002.png" type="Texture" id=9]
+[ext_resource path="res://Scenes/HudAndUtilities/All_Icons.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Icons/attrib_icons.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Icons/restore_icons.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/quick_slot.gd" type="Script" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="Inventory" type="CanvasLayer"]
+pause_mode = 2
+layer = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 93.1818, 55.9663 ],
+"_edit_vertical_guides_": [ 345.24, 120.975, 152.271, 198.0 ]
+}
+
+[node name="inv_button" type="TouchScreenButton" parent="."]
+position = Vector2( 128, 155 )
+normal = ExtResource( 2 )
+shape_visible = false
+
+[node name="save_button" type="TouchScreenButton" parent="."]
+position = Vector2( 199, 155 )
+normal = ExtResource( 3 )
+shape_visible = false
+
+[node name="load_button" type="TouchScreenButton" parent="."]
+position = Vector2( 336.237, 9.53341 )
+normal = ExtResource( 3 )
+shape_visible = false
+
+[node name="debug_label" type="Label" parent="."]
+margin_left = 2.39593
+margin_top = 169.226
+margin_right = 356.396
+margin_bottom = 179.226
+custom_fonts/font = ExtResource( 4 )
+
+[node name="background" type="TextureRect" parent="."]
+visible = false
+margin_right = 360.0
+margin_bottom = 180.0
+mouse_filter = 0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="inv_label" type="Label" parent="background"]
+margin_left = 34.3778
+margin_top = 59.7787
+margin_right = 118.378
+margin_bottom = 79.7787
+custom_fonts/font = ExtResource( 6 )
+text = "Inventory"
+
+[node name="close_button" type="Button" parent="background"]
+margin_left = 5.49764
+margin_top = 60.6467
+margin_right = 28.4976
+margin_bottom = 80.6467
+custom_fonts/font = ExtResource( 6 )
+custom_styles/normal = ExtResource( 7 )
+shortcut_in_tooltip = false
+text = " X"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="background"]
+margin_left = 239.0
+margin_top = 7.0
+margin_right = 348.0
+margin_bottom = 172.0
+theme = ExtResource( 8 )
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background/ScrollContainer"]
+margin_right = 90.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 90, 38 )
+
+[node name="Item_Stat_BG" type="TextureRect" parent="background"]
+visible = false
+margin_left = 128.945
+margin_top = 7.32598
+margin_right = 234.945
+margin_bottom = 172.326
+texture = ExtResource( 9 )
+expand = true
+
+[node name="Label" type="Label" parent="background/Item_Stat_BG"]
+margin_left = 36.3653
+margin_top = 27.7473
+margin_right = 60.3653
+margin_bottom = 38.7473
+custom_fonts/font = ExtResource( 4 )
+text = "price:"
+valign = 1
+clip_text = true
+
+[node name="name_label" type="Label" parent="background/Item_Stat_BG"]
+margin_left = 4.85391
+margin_top = 9.42696
+margin_right = 101.854
+margin_bottom = 20.427
+custom_fonts/font = ExtResource( 4 )
+valign = 1
+clip_text = true
+
+[node name="count_label" type="Label" parent="background/Item_Stat_BG"]
+margin_left = 36.3222
+margin_top = 40.4184
+margin_right = 102.322
+margin_bottom = 51.4184
+custom_fonts/font = ExtResource( 4 )
+valign = 1
+clip_text = true
+
+[node name="price_label" type="Label" parent="background/Item_Stat_BG"]
+margin_left = 62.0
+margin_top = 28.0
+margin_right = 103.0
+margin_bottom = 39.0
+custom_fonts/font = ExtResource( 4 )
+valign = 1
+clip_text = true
+
+[node name="all_icons" parent="background/Item_Stat_BG" instance=ExtResource( 10 )]
+position = Vector2( 16.3514, 37.9585 )
+
+[node name="attrib_icons" type="Sprite" parent="background/Item_Stat_BG"]
+position = Vector2( 9.20966, 72.2473 )
+texture = ExtResource( 11 )
+
+[node name="restore_icons" type="Sprite" parent="background/Item_Stat_BG"]
+position = Vector2( 9.35028, 72.0923 )
+texture = ExtResource( 12 )
+
+[node name="x_prop_label" type="Label" parent="background/Item_Stat_BG"]
+margin_left = 21.531
+margin_top = 56.6799
+margin_right = 64.531
+margin_bottom = 66.6799
+custom_colors/font_color = Color( 0.847059, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+
+[node name="y_prop_label" type="Label" parent="background/Item_Stat_BG"]
+margin_left = 22.2901
+margin_top = 67.4118
+margin_right = 65.2901
+margin_bottom = 77.4118
+custom_colors/font_color = Color( 0.0666667, 1, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+
+[node name="z_prop_label" type="Label" parent="background/Item_Stat_BG"]
+margin_left = 22.2901
+margin_top = 77.1543
+margin_right = 65.2901
+margin_bottom = 87.1543
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 4 )
+
+[node name="description_label" type="Label" parent="background/Item_Stat_BG"]
+margin_left = 5.0
+margin_top = 98.0
+margin_right = 102.0
+margin_bottom = 160.0
+custom_fonts/font = ExtResource( 4 )
+autowrap = true
+clip_text = true
+
+[node name="use_equip_button" type="Button" parent="background/Item_Stat_BG"]
+margin_left = -120.0
+margin_top = 108.0
+margin_right = -65.0
+margin_bottom = 128.0
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = ExtResource( 7 )
+text = "Use"
+
+[node name="add_slot_button" type="Button" parent="background/Item_Stat_BG"]
+margin_left = -120.488
+margin_top = 137.26
+margin_right = -65.4877
+margin_bottom = 157.26
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = ExtResource( 7 )
+text = "Add Slot"
+
+[node name="remove_button" type="Button" parent="background/Item_Stat_BG"]
+margin_left = -56.0
+margin_top = 137.0
+margin_right = -11.0
+margin_bottom = 157.0
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = ExtResource( 7 )
+text = "Remove"
+
+[node name="sell_button" type="Button" parent="background/Item_Stat_BG"]
+margin_left = -120.0
+margin_top = 81.0
+margin_right = -70.0
+margin_bottom = 101.0
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = ExtResource( 7 )
+text = "Sell 1"
+
+[node name="sell_ten_button" type="Button" parent="background/Item_Stat_BG"]
+margin_left = -64.5775
+margin_top = 80.7365
+margin_right = -11.5775
+margin_bottom = 100.736
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = ExtResource( 7 )
+text = "Sell 10"
+
+[node name="quick_slot_button" type="TouchScreenButton" parent="."]
+position = Vector2( 345.234, 93.2334 )
+shape = SubResource( 1 )
+shape_centered = false
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="all_icons" parent="quick_slot_button" instance=ExtResource( 10 )]
+
+[node name="Label" type="Label" parent="quick_slot_button"]
+margin_left = -13.6267
+margin_top = -12.338
+margin_right = 15.3733
+margin_bottom = -2.33796
+custom_fonts/font = ExtResource( 4 )
+clip_text = true
+
+[connection signal="released" from="inv_button" to="." method="_on_inv_button_released"]
+[connection signal="released" from="save_button" to="." method="_on_save_button_released"]
+[connection signal="released" from="load_button" to="." method="_on_load_button_released"]
+[connection signal="button_up" from="background/close_button" to="." method="_on_close_button_button_up"]
+[connection signal="button_up" from="background/Item_Stat_BG/use_equip_button" to="." method="_on_use_equip_button_button_up"]
+[connection signal="button_up" from="background/Item_Stat_BG/add_slot_button" to="." method="_on_add_slot_button_button_up"]
+[connection signal="button_up" from="background/Item_Stat_BG/remove_button" to="." method="_on_remove_button_button_up"]
+[connection signal="button_up" from="background/Item_Stat_BG/sell_button" to="." method="_on_sell_button_button_up"]
+[connection signal="button_up" from="background/Item_Stat_BG/sell_ten_button" to="." method="_on_sell_ten_button_button_up"]
+[connection signal="released" from="quick_slot_button" to="quick_slot_button" method="_on_Quick_Slot_Button_released"]

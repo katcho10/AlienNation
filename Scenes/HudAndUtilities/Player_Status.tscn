@@ -1,0 +1,739 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://Scripts/player_status.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Hud/bg_002.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Hud/hud_legend.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Hud/bar_red.png" type="Texture" id=5]
+[ext_resource path="res://MyResources/DynamicFonts/Kenney_Mini_S8.res" type="DynamicFont" id=6]
+[ext_resource path="res://Assets/Hud/bar_green.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Hud/bar_orange.png" type="Texture" id=9]
+[ext_resource path="res://MyResources/DynamicFonts/Kenney_Mini_s16.res" type="DynamicFont" id=10]
+[ext_resource path="res://Assets/Hud/bar_pinkd.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Hud/attack_siloette_icon.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Icons/sword_x32.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Hud/circle_transfa20.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Hud/transfaWhiteCircle_x44.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Hud/transfaRedCircle_x44.png" type="Texture" id=16]
+[ext_resource path="res://Scripts/joystick.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/HudAndUtilities/All_Skill_Icons.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scripts/skill_manager.gd" type="Script" id=19]
+[ext_resource path="res://Assets/Hud/bg_003.png" type="Texture" id=21]
+[ext_resource path="res://Scripts/screen_add_status.gd" type="Script" id=22]
+[ext_resource path="res://Assets/Hud/triangle20t.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Hud/hud_legend02.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Hud/otri.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Hud/otri_outline.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Hud/otri_disable.png" type="Texture" id=27]
+[ext_resource path="res://MyResources/ThemesFolder/focusOButton.stylebox" type="StyleBox" id=28]
+[ext_resource path="res://MyResources/ThemesFolder/orangedButton.stylebox" type="StyleBox" id=29]
+[ext_resource path="res://Assets/Icons/attrib_icons.png" type="Texture" id=30]
+[ext_resource path="res://Scenes/HudAndUtilities/All_Icons.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Scripts/equipment.gd" type="Script" id=32]
+[ext_resource path="res://Assets/Icons/Shieldboi.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Icons/SpiritBall.png" type="Texture" id=34]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 11 )
+region_rect = Rect2( 0, 0, 60, 5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( -7, -20, 15, 3, 3, 15, -20, -7 )
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 22.0
+
+[sub_resource type="RectangleShape2D" id=4]
+
+[node name="Player_Status" type="CanvasLayer"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 116.825, 155.917 ],
+"_edit_vertical_guides_": [ 160.0, 179.0 ]
+}
+
+[node name="status_button" type="TouchScreenButton" parent="."]
+position = Vector2( 145, 155 )
+normal = ExtResource( 34 )
+
+[node name="equip_button" type="TouchScreenButton" parent="."]
+position = Vector2( 163, 155 )
+normal = ExtResource( 33 )
+
+[node name="status_bg" type="TextureRect" parent="."]
+margin_right = 120.0
+margin_bottom = 55.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="legends" type="TextureRect" parent="status_bg"]
+margin_left = 1.0
+margin_top = 3.0
+margin_right = 36.0
+margin_bottom = 50.0
+texture = ExtResource( 4 )
+
+[node name="HpProgress" type="TextureProgress" parent="status_bg"]
+margin_left = 37.0
+margin_top = 3.0
+margin_right = 115.0
+margin_bottom = 10.0
+value = 100.0
+texture_progress = ExtResource( 5 )
+nine_patch_stretch = true
+
+[node name="HpLabel" type="Label" parent="status_bg"]
+margin_left = 37.0
+margin_top = 1.0
+margin_right = 115.0
+margin_bottom = 11.0
+custom_fonts/font = ExtResource( 6 )
+text = "100"
+align = 1
+
+[node name="EnProgress" type="TextureProgress" parent="status_bg"]
+margin_left = 37.0
+margin_top = 11.0
+margin_right = 115.0
+margin_bottom = 18.0
+value = 100.0
+texture_progress = ExtResource( 8 )
+nine_patch_stretch = true
+
+[node name="EnLabel" type="Label" parent="status_bg"]
+margin_left = 37.0
+margin_top = 9.0
+margin_right = 115.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 6 )
+text = "100"
+align = 1
+
+[node name="ExpProgress" type="TextureProgress" parent="status_bg"]
+margin_left = 37.0
+margin_top = 19.0
+margin_right = 115.0
+margin_bottom = 26.0
+value = 100.0
+texture_progress = ExtResource( 9 )
+nine_patch_stretch = true
+
+[node name="ExpLabel" type="Label" parent="status_bg"]
+margin_left = 37.0
+margin_top = 17.0
+margin_right = 115.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 6 )
+text = "100"
+align = 1
+
+[node name="GoldLabel" type="Label" parent="status_bg"]
+margin_left = 37.0
+margin_top = 25.0
+margin_right = 115.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 6 )
+text = "100"
+align = 1
+
+[node name="LvlLabel" type="Label" parent="status_bg"]
+margin_left = 37.0
+margin_top = 33.0
+margin_right = 115.0
+margin_bottom = 43.0
+custom_fonts/font = ExtResource( 6 )
+text = "1"
+align = 1
+
+[node name="knockout_bg" type="TextureRect" parent="."]
+visible = false
+margin_left = 113.143
+margin_top = 56.0874
+margin_right = 248.143
+margin_bottom = 133.087
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Label" type="Label" parent="knockout_bg"]
+margin_left = 34.2588
+margin_top = 5.23716
+margin_right = 102.259
+margin_bottom = 25.2372
+custom_fonts/font = ExtResource( 10 )
+text = "You Died"
+
+[node name="ko_counter" type="Label" parent="knockout_bg"]
+margin_left = 32.4108
+margin_top = 27.6811
+margin_right = 100.411
+margin_bottom = 37.6811
+custom_fonts/font = ExtResource( 6 )
+text = "respawn: 24"
+align = 1
+
+[node name="Button" type="Button" parent="knockout_bg"]
+margin_left = 42.2094
+margin_top = 47.1622
+margin_right = 92.2094
+margin_bottom = 67.1622
+custom_fonts/font = ExtResource( 10 )
+custom_styles/normal = SubResource( 1 )
+text = "OK"
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Control" type="Control" parent="."]
+margin_right = 360.0
+margin_bottom = 180.0
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+margin_left = 257.661
+margin_top = 78.4097
+margin_right = 385.661
+margin_bottom = 206.41
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 12 )
+
+[node name="touch_attack" type="TouchScreenButton" parent="Control"]
+position = Vector2( 308.073, 127.101 )
+scale = Vector2( 1.5, 1.5 )
+normal = ExtResource( 13 )
+shape = SubResource( 2 )
+action = "ui_accept"
+
+[node name="Joystick" type="Sprite" parent="Control"]
+position = Vector2( 49, 133 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 14 )
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Control/Joystick"]
+normal = ExtResource( 15 )
+pressed = ExtResource( 16 )
+shape = SubResource( 3 )
+script = ExtResource( 17 )
+
+[node name="add_status_bg" type="TextureRect" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 21 )
+script = ExtResource( 22 )
+
+[node name="Static_Item" type="Control" parent="add_status_bg"]
+margin_right = 361.0
+margin_bottom = 180.0
+
+[node name="Status_Label" type="Label" parent="add_status_bg/Static_Item"]
+margin_left = 36.3328
+margin_top = 61.8173
+margin_right = 92.3328
+margin_bottom = 81.8173
+custom_fonts/font = ExtResource( 10 )
+text = "Status"
+
+[node name="Attack_Label" type="Label" parent="add_status_bg/Static_Item"]
+margin_left = 268.019
+margin_top = 24.5258
+margin_right = 324.019
+margin_bottom = 44.5258
+custom_colors/font_color = Color( 0.996078, 0.145098, 0.145098, 1 )
+custom_fonts/font = ExtResource( 10 )
+text = "Attack"
+
+[node name="Pattack_Label2" type="Label" parent="add_status_bg/Static_Item"]
+margin_left = 140.457
+margin_top = 101.429
+margin_right = 208.457
+margin_bottom = 121.429
+custom_colors/font_color = Color( 0.301961, 1, 0, 1 )
+custom_fonts/font = ExtResource( 10 )
+text = "Power"
+
+[node name="Defence_Label" type="Label" parent="add_status_bg/Static_Item"]
+margin_left = 281.38
+margin_top = 100.964
+margin_right = 349.38
+margin_bottom = 120.964
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 10 )
+text = "Defence"
+
+[node name="triangle" type="TextureRect" parent="add_status_bg/Static_Item"]
+margin_left = 154.95
+margin_top = 34.2159
+margin_right = 335.95
+margin_bottom = 159.216
+texture = ExtResource( 23 )
+expand = true
+
+[node name="RemainP_Label" type="Label" parent="add_status_bg/Static_Item"]
+margin_left = 223.742
+margin_top = 112.722
+margin_right = 266.742
+margin_bottom = 135.722
+custom_fonts/font = ExtResource( 6 )
+text = "Remaining
+Points"
+align = 1
+
+[node name="hud_legend" type="TextureRect" parent="add_status_bg/Static_Item"]
+margin_left = 119.79
+margin_top = 3.42
+margin_right = 183.79
+margin_bottom = 25.42
+texture = ExtResource( 24 )
+
+[node name="max_hp_label" type="Label" parent="add_status_bg"]
+margin_left = 174.82
+margin_top = 1.34356
+margin_right = 222.82
+margin_bottom = 11.3436
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "9999"
+
+[node name="max_en_label" type="Label" parent="add_status_bg"]
+margin_left = 175.0
+margin_top = 9.0
+margin_right = 223.0
+margin_bottom = 19.0
+custom_colors/font_color = Color( 0.0313726, 1, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "9999"
+
+[node name="attack_label" type="Label" parent="add_status_bg"]
+margin_left = 281.99
+margin_top = 41.1169
+margin_right = 329.99
+margin_bottom = 51.1169
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "9999"
+
+[node name="pattack_label" type="Label" parent="add_status_bg"]
+margin_left = 148.148
+margin_top = 116.967
+margin_right = 196.148
+margin_bottom = 126.967
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "9999"
+
+[node name="defence_label" type="Label" parent="add_status_bg"]
+margin_left = 299.048
+margin_top = 116.706
+margin_right = 347.048
+margin_bottom = 126.706
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "9999"
+
+[node name="remain_stat_label" type="Label" parent="add_status_bg"]
+margin_left = 216.617
+margin_top = 91.0888
+margin_right = 272.617
+margin_bottom = 111.089
+custom_fonts/font = ExtResource( 10 )
+text = "10"
+align = 1
+
+[node name="add_str_button" type="TextureButton" parent="add_status_bg"]
+margin_left = 221.631
+margin_top = 22.0897
+margin_right = 269.631
+margin_bottom = 70.0897
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 26 )
+texture_disabled = ExtResource( 27 )
+expand = true
+
+[node name="add_int_button" type="TextureButton" parent="add_status_bg"]
+margin_left = 150.024
+margin_top = 123.298
+margin_right = 198.024
+margin_bottom = 171.298
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 26 )
+texture_disabled = ExtResource( 27 )
+expand = true
+
+[node name="add_dex_button" type="TextureButton" parent="add_status_bg"]
+margin_left = 293.568
+margin_top = 123.683
+margin_right = 341.568
+margin_bottom = 171.683
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 26 )
+texture_disabled = ExtResource( 27 )
+expand = true
+
+[node name="apply_button" type="Button" parent="add_status_bg"]
+margin_left = 12.9455
+margin_top = 106.124
+margin_right = 102.946
+margin_bottom = 126.124
+rect_min_size = Vector2( 90, 20 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/focus = ExtResource( 28 )
+custom_styles/normal = ExtResource( 29 )
+shortcut_in_tooltip = false
+text = "Apply"
+
+[node name="reset_button" type="Button" parent="add_status_bg"]
+margin_left = 13.2229
+margin_top = 136.637
+margin_right = 103.223
+margin_bottom = 156.637
+rect_min_size = Vector2( 90, 20 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/focus = ExtResource( 28 )
+custom_styles/normal = ExtResource( 29 )
+shortcut_in_tooltip = false
+text = "Reset"
+
+[node name="close_button" type="Button" parent="add_status_bg"]
+margin_left = 12.7741
+margin_top = 65.4519
+margin_right = 30.7741
+margin_bottom = 81.4519
+custom_fonts/font = ExtResource( 6 )
+custom_styles/focus = ExtResource( 28 )
+custom_styles/normal = ExtResource( 29 )
+shortcut_in_tooltip = false
+text = "X"
+
+[node name="equipment_bg" type="TextureRect" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 21 )
+script = ExtResource( 32 )
+
+[node name="Label" type="Label" parent="equipment_bg"]
+margin_left = 32.0
+margin_top = 59.0
+margin_right = 116.0
+margin_bottom = 79.0
+custom_fonts/font = ExtResource( 10 )
+text = "Equipment"
+
+[node name="close_button" type="Button" parent="equipment_bg"]
+margin_left = 11.0
+margin_top = 63.0
+margin_right = 29.0
+margin_bottom = 79.0
+custom_fonts/font = ExtResource( 6 )
+custom_styles/focus = ExtResource( 28 )
+custom_styles/normal = ExtResource( 29 )
+shortcut_in_tooltip = false
+text = "X"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="equipment_bg"]
+margin_left = 239.0
+margin_top = 7.0
+margin_right = 346.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 90, 38 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="headgear_button" type="Button" parent="equipment_bg/VBoxContainer"]
+margin_right = 107.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 90, 20 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/focus = ExtResource( 28 )
+custom_styles/normal = ExtResource( 29 )
+shortcut_in_tooltip = false
+text = "Head Gear"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="weapon_one_button" type="Button" parent="equipment_bg/VBoxContainer"]
+margin_top = 24.0
+margin_right = 107.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 90, 20 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/focus = ExtResource( 28 )
+custom_styles/normal = ExtResource( 29 )
+shortcut_in_tooltip = false
+text = "Weapon Primary"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="weapon_two_button" type="Button" parent="equipment_bg/VBoxContainer"]
+margin_top = 48.0
+margin_right = 107.0
+margin_bottom = 68.0
+rect_min_size = Vector2( 90, 20 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/focus = ExtResource( 28 )
+custom_styles/normal = ExtResource( 29 )
+shortcut_in_tooltip = false
+text = "Weapon Secondary"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="torso_amr_button" type="Button" parent="equipment_bg/VBoxContainer"]
+margin_top = 72.0
+margin_right = 107.0
+margin_bottom = 92.0
+rect_min_size = Vector2( 90, 20 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/focus = ExtResource( 28 )
+custom_styles/normal = ExtResource( 29 )
+shortcut_in_tooltip = false
+text = "Torso Armor"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="legs_amr_button" type="Button" parent="equipment_bg/VBoxContainer"]
+margin_top = 96.0
+margin_right = 107.0
+margin_bottom = 116.0
+rect_min_size = Vector2( 90, 20 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/focus = ExtResource( 28 )
+custom_styles/normal = ExtResource( 29 )
+shortcut_in_tooltip = false
+text = "Legs Armor"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="boots_button" type="Button" parent="equipment_bg/VBoxContainer"]
+margin_top = 120.0
+margin_right = 107.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 90, 20 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/focus = ExtResource( 28 )
+custom_styles/normal = ExtResource( 29 )
+shortcut_in_tooltip = false
+text = "Boots"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="accessory_button" type="Button" parent="equipment_bg/VBoxContainer"]
+margin_top = 144.0
+margin_right = 107.0
+margin_bottom = 164.0
+rect_min_size = Vector2( 90, 20 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/focus = ExtResource( 28 )
+custom_styles/normal = ExtResource( 29 )
+shortcut_in_tooltip = false
+text = "Accessory"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Item_Stat_BG" type="TextureRect" parent="equipment_bg"]
+visible = false
+margin_left = 128.945
+margin_top = 7.32598
+margin_right = 234.945
+margin_bottom = 172.326
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Total_Label" type="Label" parent="equipment_bg/Item_Stat_BG"]
+margin_left = 65.055
+margin_top = -0.32598
+margin_right = 92.055
+margin_bottom = 9.67402
+custom_fonts/font = ExtResource( 6 )
+text = "Total"
+
+[node name="name_label" type="Label" parent="equipment_bg/Item_Stat_BG"]
+margin_left = 5.55751
+margin_top = 48.674
+margin_right = 102.558
+margin_bottom = 59.6741
+custom_fonts/font = ExtResource( 6 )
+valign = 1
+clip_text = true
+
+[node name="ups_label" type="Label" parent="equipment_bg/Item_Stat_BG"]
+margin_left = 37.0
+margin_top = 80.0
+margin_right = 103.0
+margin_bottom = 90.0
+custom_fonts/font = ExtResource( 6 )
+text = "upgrade:"
+valign = 1
+clip_text = true
+
+[node name="all_icons" parent="equipment_bg/Item_Stat_BG" instance=ExtResource( 31 )]
+position = Vector2( 17.055, 77.2056 )
+
+[node name="description_label" type="Label" parent="equipment_bg/Item_Stat_BG"]
+margin_left = 5.0
+margin_top = 98.0
+margin_right = 102.0
+margin_bottom = 160.0
+custom_fonts/font = ExtResource( 6 )
+autowrap = true
+clip_text = true
+
+[node name="attrib_icons" type="Sprite" parent="equipment_bg/Item_Stat_BG"]
+position = Vector2( 10.055, 25.674 )
+texture = ExtResource( 30 )
+
+[node name="x_prop_label" type="Label" parent="equipment_bg/Item_Stat_BG"]
+margin_left = 19.0
+margin_top = 11.0
+margin_right = 57.0
+margin_bottom = 21.0
+custom_colors/font_color = Color( 0.847059, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "100 + 10"
+
+[node name="y_prop_label" type="Label" parent="equipment_bg/Item_Stat_BG"]
+margin_left = 18.8141
+margin_top = 21.4059
+margin_right = 56.8141
+margin_bottom = 31.4059
+custom_colors/font_color = Color( 0.0666667, 1, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "10 + 10"
+
+[node name="z_prop_label" type="Label" parent="equipment_bg/Item_Stat_BG"]
+margin_left = 18.8141
+margin_top = 31.1484
+margin_right = 56.8141
+margin_bottom = 41.1484
+custom_fonts/font = ExtResource( 6 )
+text = "30 + 10"
+
+[node name="x_total_label" type="Label" parent="equipment_bg/Item_Stat_BG"]
+margin_left = 65.2409
+margin_top = 10.674
+margin_right = 103.241
+margin_bottom = 20.674
+custom_colors/font_color = Color( 0.847059, 0, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "100"
+
+[node name="y_total_label" type="Label" parent="equipment_bg/Item_Stat_BG"]
+margin_left = 65.055
+margin_top = 21.0799
+margin_right = 103.055
+margin_bottom = 31.0799
+custom_colors/font_color = Color( 0.0666667, 1, 0, 1 )
+custom_fonts/font = ExtResource( 6 )
+text = "100"
+
+[node name="z_total_label" type="Label" parent="equipment_bg/Item_Stat_BG"]
+margin_left = 65.055
+margin_top = 30.8224
+margin_right = 103.055
+margin_bottom = 40.8224
+custom_fonts/font = ExtResource( 6 )
+text = "100"
+
+[node name="remove_button" type="Button" parent="equipment_bg"]
+margin_left = 16.0
+margin_top = 142.0
+margin_right = 106.0
+margin_bottom = 162.0
+rect_min_size = Vector2( 90, 20 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/focus = ExtResource( 28 )
+custom_styles/normal = ExtResource( 29 )
+shortcut_in_tooltip = false
+text = "Unequip"
+
+[node name="upgrade_button" type="Button" parent="equipment_bg"]
+margin_left = 16.0
+margin_top = 116.0
+margin_right = 106.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 90, 20 )
+custom_fonts/font = ExtResource( 6 )
+custom_styles/focus = ExtResource( 28 )
+custom_styles/normal = ExtResource( 29 )
+shortcut_in_tooltip = false
+text = "Upgrade"
+
+[node name="skill_bg" type="Control" parent="."]
+margin_right = 360.0
+margin_bottom = 180.0
+mouse_filter = 2
+script = ExtResource( 19 )
+
+[node name="Timer" type="Timer" parent="skill_bg"]
+autostart = true
+
+[node name="touch01" type="TouchScreenButton" parent="skill_bg"]
+position = Vector2( 264, 152 )
+shape = SubResource( 4 )
+
+[node name="all_skill_icons" parent="skill_bg/touch01" instance=ExtResource( 18 )]
+position = Vector2( 10, 10 )
+
+[node name="cooldown" type="Label" parent="skill_bg/touch01"]
+margin_right = 20.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.278431, 0.278431, 0.278431, 1 )
+custom_fonts/font = ExtResource( 10 )
+
+[node name="touch02" type="TouchScreenButton" parent="skill_bg"]
+position = Vector2( 277, 120 )
+shape = SubResource( 4 )
+
+[node name="all_skill_icons" parent="skill_bg/touch02" instance=ExtResource( 18 )]
+position = Vector2( 10, 10 )
+
+[node name="cooldown" type="Label" parent="skill_bg/touch02"]
+margin_right = 20.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.278431, 0.278431, 0.278431, 1 )
+custom_fonts/font = ExtResource( 10 )
+
+[node name="touch03" type="TouchScreenButton" parent="skill_bg"]
+position = Vector2( 301, 96 )
+shape = SubResource( 4 )
+
+[node name="all_skill_icons" parent="skill_bg/touch03" instance=ExtResource( 18 )]
+position = Vector2( 10, 10 )
+
+[node name="cooldown" type="Label" parent="skill_bg/touch03"]
+margin_right = 20.0
+margin_bottom = 20.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0.278431, 0.278431, 0.278431, 1 )
+custom_fonts/font = ExtResource( 10 )
+
+[connection signal="released" from="status_button" to="." method="_on_status_button_released"]
+[connection signal="released" from="equip_button" to="." method="_on_equip_button_released"]
+[connection signal="button_up" from="knockout_bg/Button" to="." method="_on_Button_button_up"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="button_up" from="add_status_bg/add_str_button" to="add_status_bg" method="_on_add_str_button_button_up"]
+[connection signal="button_up" from="add_status_bg/add_int_button" to="add_status_bg" method="_on_add_int_button_button_up"]
+[connection signal="button_up" from="add_status_bg/add_dex_button" to="add_status_bg" method="_on_add_dex_button_button_up"]
+[connection signal="button_up" from="add_status_bg/apply_button" to="add_status_bg" method="_on_apply_button_button_up"]
+[connection signal="button_up" from="add_status_bg/reset_button" to="add_status_bg" method="_on_reset_button_button_up"]
+[connection signal="button_up" from="add_status_bg/close_button" to="add_status_bg" method="_on_close_button_button_up"]
+[connection signal="button_up" from="equipment_bg/close_button" to="equipment_bg" method="_on_close_button_button_up"]
+[connection signal="button_up" from="equipment_bg/VBoxContainer/headgear_button" to="equipment_bg" method="_on_headgear_button_button_up"]
+[connection signal="button_up" from="equipment_bg/VBoxContainer/weapon_one_button" to="equipment_bg" method="_on_weapon_one_button_button_up"]
+[connection signal="button_up" from="equipment_bg/VBoxContainer/weapon_two_button" to="equipment_bg" method="_on_weapon_two_button_button_up"]
+[connection signal="button_up" from="equipment_bg/VBoxContainer/torso_amr_button" to="equipment_bg" method="_on_torso_amr_button_button_up"]
+[connection signal="button_up" from="equipment_bg/VBoxContainer/legs_amr_button" to="equipment_bg" method="_on_legs_amr_button_button_up"]
+[connection signal="button_up" from="equipment_bg/VBoxContainer/boots_button" to="equipment_bg" method="_on_boots_button_button_up"]
+[connection signal="button_up" from="equipment_bg/VBoxContainer/accessory_button" to="equipment_bg" method="_on_accessory_button_button_up"]
+[connection signal="button_up" from="equipment_bg/remove_button" to="equipment_bg" method="_on_remove_button_button_up"]
+[connection signal="timeout" from="skill_bg/Timer" to="skill_bg" method="_on_Timer_timeout"]
+[connection signal="released" from="skill_bg/touch01" to="skill_bg" method="_on_touch01_released"]
+[connection signal="released" from="skill_bg/touch02" to="skill_bg" method="_on_touch02_released"]
+[connection signal="released" from="skill_bg/touch03" to="skill_bg" method="_on_touch03_released"]

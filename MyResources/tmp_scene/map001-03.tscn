@@ -1,0 +1,176 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://MyResources/Materials/map_tiles.material" type="Material" id=1]
+
+[sub_resource type="ArrayMesh" id=5]
+resource_name = "Plane.006"
+surfaces/0 = {
+"aabb": AABB( -4, 0, -2, 8.00001, 1e-05, 4.00001 ),
+"array_data": PoolByteArray( 0, 0, 128, 64, 0, 0, 0, 0, 0, 0, 0, 64, 0, 127, 0, 0, 127, 0, 0, 127, 51, 58, 40, 49, 0, 0, 128, 192, 0, 0, 0, 0, 0, 0, 0, 192, 0, 127, 0, 0, 127, 0, 0, 127, 96, 57, 17, 48, 0, 0, 128, 192, 0, 0, 0, 0, 0, 0, 0, 64, 0, 127, 0, 0, 127, 0, 0, 127, 96, 57, 40, 49, 0, 0, 128, 64, 0, 0, 0, 0, 0, 0, 0, 192, 0, 127, 0, 0, 127, 0, 0, 127, 51, 58, 17, 48 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 97559,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="ArrayMesh" id=6]
+resource_name = "Plane"
+surfaces/0 = {
+"aabb": AABB( -2, 0, -2, 4.00001, 1e-05, 4.00001 ),
+"array_data": PoolByteArray( 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 64, 0, 127, 0, 0, 127, 0, 0, 127, 253, 51, 254, 59, 0, 0, 0, 192, 0, 0, 0, 0, 0, 0, 0, 192, 0, 127, 0, 0, 127, 0, 0, 127, 7, 48, 1, 59, 0, 0, 0, 192, 0, 0, 0, 0, 0, 0, 0, 64, 0, 127, 0, 0, 127, 0, 0, 127, 7, 48, 254, 59, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 192, 0, 127, 0, 0, 127, 0, 0, 127, 253, 51, 1, 59 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 97559,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="ArrayMesh" id=7]
+resource_name = "Plane.001"
+surfaces/0 = {
+"aabb": AABB( -2, 0, -2, 4.00001, 1e-05, 4.00001 ),
+"array_data": PoolByteArray( 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 64, 0, 127, 0, 0, 127, 0, 0, 127, 254, 53, 254, 59, 0, 0, 0, 192, 0, 0, 0, 0, 0, 0, 0, 192, 0, 127, 0, 0, 127, 0, 0, 127, 3, 52, 1, 59, 0, 0, 0, 192, 0, 0, 0, 0, 0, 0, 0, 64, 0, 127, 0, 0, 127, 0, 0, 127, 3, 52, 254, 59, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 192, 0, 127, 0, 0, 127, 0, 0, 127, 254, 53, 1, 59 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 97559,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="ArrayMesh" id=8]
+resource_name = "Plane.002"
+surfaces/0 = {
+"aabb": AABB( -2, 0, -2, 4.00001, 1e-05, 4.00001 ),
+"array_data": PoolByteArray( 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 64, 0, 127, 0, 0, 127, 0, 0, 127, 236, 57, 40, 49, 0, 0, 0, 192, 0, 0, 0, 0, 0, 0, 0, 192, 0, 127, 0, 0, 127, 0, 0, 127, 167, 57, 17, 48, 0, 0, 0, 192, 0, 0, 0, 0, 0, 0, 0, 64, 0, 127, 0, 0, 127, 0, 0, 127, 167, 57, 40, 49, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 192, 0, 127, 0, 0, 127, 0, 0, 127, 236, 57, 17, 48 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 97559,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="ArrayMesh" id=9]
+resource_name = "Plane.007"
+surfaces/0 = {
+"aabb": AABB( -2, 0, -2, 4.00001, 1e-05, 4.00001 ),
+"array_data": PoolByteArray( 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 64, 0, 127, 0, 0, 127, 0, 0, 127, 254, 55, 254, 59, 0, 0, 0, 192, 0, 0, 0, 0, 0, 0, 0, 192, 0, 127, 0, 0, 127, 0, 0, 127, 3, 54, 1, 59, 0, 0, 0, 192, 0, 0, 0, 0, 0, 0, 0, 64, 0, 127, 0, 0, 127, 0, 0, 127, 3, 54, 254, 59, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 192, 0, 127, 0, 0, 127, 0, 0, 127, 254, 55, 1, 59 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 97559,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="ArrayMesh" id=10]
+resource_name = "Plane.008"
+surfaces/0 = {
+"aabb": AABB( -2, 0, -2, 4.00001, 1e-05, 4.00001 ),
+"array_data": PoolByteArray( 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 64, 0, 127, 0, 0, 127, 0, 0, 127, 255, 56, 254, 59, 0, 0, 0, 192, 0, 0, 0, 0, 0, 0, 0, 192, 0, 127, 0, 0, 127, 0, 0, 127, 1, 56, 1, 59, 0, 0, 0, 192, 0, 0, 0, 0, 0, 0, 0, 64, 0, 127, 0, 0, 127, 0, 0, 127, 1, 56, 254, 59, 0, 0, 0, 64, 0, 0, 0, 0, 0, 0, 0, 192, 0, 127, 0, 0, 127, 0, 0, 127, 255, 56, 1, 59 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 1, 0, 3, 0 ),
+"blend_shape_data": [  ],
+"format": 97559,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 4
+}
+
+[sub_resource type="ArrayMesh" id=11]
+resource_name = "Plane.003"
+surfaces/0 = {
+"aabb": AABB( -2, -2, -2, 4.00001, 4, 4 ),
+"array_data": PoolByteArray( 0, 0, 0, 64, 0, 0, 0, 192, 0, 0, 0, 192, 89, 0, 89, 0, 89, 0, 167, 127, 255, 58, 245, 51, 0, 0, 0, 192, 0, 0, 0, 64, 255, 255, 255, 63, 89, 0, 89, 0, 89, 0, 167, 127, 3, 58, 2, 48, 0, 0, 0, 192, 0, 0, 0, 192, 0, 0, 0, 64, 89, 0, 89, 0, 89, 0, 167, 127, 3, 58, 245, 51, 0, 0, 0, 64, 0, 0, 0, 192, 0, 0, 0, 192, 89, 0, 89, 0, 89, 0, 167, 127, 255, 58, 245, 51, 0, 0, 0, 64, 0, 0, 0, 64, 0, 0, 0, 192, 89, 0, 89, 0, 89, 0, 167, 127, 255, 58, 2, 48, 0, 0, 0, 192, 0, 0, 0, 64, 255, 255, 255, 63, 89, 0, 89, 0, 89, 0, 167, 127, 3, 58, 2, 48 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0 ),
+"blend_shape_data": [  ],
+"format": 97559,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 6
+}
+
+[sub_resource type="ArrayMesh" id=12]
+resource_name = "Plane.004"
+surfaces/0 = {
+"aabb": AABB( -2, -2, -2, 4.00001, 4, 4 ),
+"array_data": PoolByteArray( 0, 0, 0, 64, 0, 0, 0, 192, 0, 0, 0, 192, 89, 0, 89, 0, 89, 0, 167, 127, 255, 59, 245, 51, 0, 0, 0, 192, 0, 0, 0, 64, 255, 255, 255, 63, 89, 0, 89, 0, 89, 0, 167, 127, 3, 59, 2, 48, 0, 0, 0, 192, 0, 0, 0, 192, 0, 0, 0, 64, 89, 0, 89, 0, 89, 0, 167, 127, 3, 59, 245, 51, 0, 0, 0, 64, 0, 0, 0, 192, 0, 0, 0, 192, 89, 0, 89, 0, 89, 0, 167, 127, 255, 59, 245, 51, 0, 0, 0, 64, 0, 0, 0, 64, 0, 0, 0, 192, 89, 0, 89, 0, 89, 0, 167, 127, 255, 59, 2, 48, 0, 0, 0, 192, 0, 0, 0, 64, 255, 255, 255, 63, 89, 0, 89, 0, 89, 0, 167, 127, 3, 59, 2, 48 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0 ),
+"blend_shape_data": [  ],
+"format": 97559,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 6
+}
+
+[sub_resource type="ArrayMesh" id=13]
+resource_name = "Plane.005"
+surfaces/0 = {
+"aabb": AABB( -2, -2, -2, 4.00001, 4, 4 ),
+"array_data": PoolByteArray( 0, 0, 0, 64, 0, 0, 0, 192, 0, 0, 0, 192, 89, 0, 89, 0, 89, 0, 167, 127, 152, 58, 46, 49, 0, 0, 0, 192, 0, 0, 0, 64, 255, 255, 255, 63, 89, 0, 89, 0, 89, 0, 167, 127, 46, 58, 2, 48, 0, 0, 0, 192, 0, 0, 0, 192, 0, 0, 0, 64, 89, 0, 89, 0, 89, 0, 167, 127, 46, 58, 46, 49, 0, 0, 0, 64, 0, 0, 0, 192, 0, 0, 0, 192, 89, 0, 89, 0, 89, 0, 167, 127, 152, 58, 46, 49, 0, 0, 0, 64, 0, 0, 0, 64, 0, 0, 0, 192, 89, 0, 89, 0, 89, 0, 167, 127, 152, 58, 2, 48, 0, 0, 0, 192, 0, 0, 0, 64, 255, 255, 255, 63, 89, 0, 89, 0, 89, 0, 167, 127, 46, 58, 2, 48 ),
+"array_index_data": PoolByteArray( 0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0 ),
+"blend_shape_data": [  ],
+"format": 97559,
+"index_count": 6,
+"material": ExtResource( 1 ),
+"primitive": 4,
+"skeleton_aabb": [  ],
+"vertex_count": 6
+}
+
+[node name="map001-03" type="Spatial"]
+
+[node name="w041" type="MeshInstance" parent="."]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="w042" type="MeshInstance" parent="."]
+mesh = SubResource( 6 )
+material/0 = null
+
+[node name="w043" type="MeshInstance" parent="."]
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="w044" type="MeshInstance" parent="."]
+mesh = SubResource( 8 )
+material/0 = null
+
+[node name="w045" type="MeshInstance" parent="."]
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="w046" type="MeshInstance" parent="."]
+mesh = SubResource( 10 )
+material/0 = null
+
+[node name="wi001" type="MeshInstance" parent="."]
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="wi002" type="MeshInstance" parent="."]
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="wi003" type="MeshInstance" parent="."]
+mesh = SubResource( 13 )
+material/0 = null

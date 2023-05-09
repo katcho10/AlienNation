@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/background_loader.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Hud/bar_bg.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Hud/bar_fg.png" type="Texture" id=3]
+[ext_resource path="res://MyResources/DynamicFonts/Kenney_Mini_s16.res" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/Hud/bg_002.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Hud/button_001.png" type="Texture" id=6]
+[ext_resource path="res://MyResources/DynamicFonts/Kenney_Mini_S8.res" type="DynamicFont" id=7]
+
+[node name="Background_Loader" type="CanvasLayer"]
+layer = 100
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 180.638 ]
+}
+
+[node name="bg_hud" type="ColorRect" parent="."]
+margin_left = -9.0
+margin_top = -9.0
+margin_right = 371.0
+margin_bottom = 185.0
+color = Color( 0.188235, 0.164706, 0.172549, 1 )
+
+[node name="TextureProgress" type="TextureProgress" parent="bg_hud"]
+margin_left = 49.2809
+margin_top = 151.436
+margin_right = 329.281
+margin_bottom = 169.436
+value = 10.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="bg_hud"]
+margin_left = 168.681
+margin_top = 149.632
+margin_right = 210.681
+margin_bottom = 169.632
+custom_fonts/font = ExtResource( 4 )
+text = "100 %"
+
+[node name="move_hud" type="TextureRect" parent="."]
+margin_left = 118.0
+margin_top = 56.0
+margin_right = 243.0
+margin_bottom = 104.0
+texture = ExtResource( 5 )
+expand = true
+
+[node name="ReviveButton" type="TextureButton" parent="move_hud"]
+margin_left = 46.5665
+margin_top = 30.5829
+margin_right = 110.567
+margin_bottom = 60.5829
+rect_scale = Vector2( 0.5, 0.4 )
+texture_normal = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="move_hud"]
+margin_left = 6.0
+margin_top = 11.0
+margin_right = 119.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 7 )
+text = "the quick brown fox"
+align = 1
+[connection signal="button_up" from="move_hud/ReviveButton" to="." method="_on_ReviveButton_button_up"]
