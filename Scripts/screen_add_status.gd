@@ -49,7 +49,7 @@ func initialize():
 
 func _on_add_str_button_button_up():
 	tmp_status_points -= 1
-	additional_attack += 2
+	additional_attack += 3
 	additional_hp += 10
 	
 	label_attack.text = String(GPlayerStatus.attack_damage + additional_attack)
@@ -59,8 +59,8 @@ func _on_add_str_button_button_up():
 
 func _on_add_int_button_button_up():
 	tmp_status_points -= 1
-	additional_pattack += 2
-	additional_en += 10
+	additional_pattack += 3
+	additional_en += 6
 	
 	label_max_en.text = String(GPlayerStatus.max_energy + additional_en)
 	label_pattack.text = String(GPlayerStatus.power_damage + additional_pattack)
@@ -69,7 +69,7 @@ func _on_add_int_button_button_up():
 
 func _on_add_dex_button_button_up():
 	tmp_status_points -= 1
-	additional_defence += 1.0
+	additional_defence += 2.0
 	additional_attack += 2
 	
 	label_defence.text = String(GPlayerStatus.armor + additional_defence)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/store.gd" type="Script" id=1]
 [ext_resource path="res://MyResources/Level_Item_Pool/BakeryGoods001.res" type="Resource" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scenes/HudAndUtilities/All_Icons.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Icons/attrib_icons.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Icons/restore_icons.png" type="Texture" id=11]
+[ext_resource path="res://MyResources/ThemesFolder/yellowScroll.theme" type="Theme" id=12]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1.99989, 1, 1 )
@@ -119,6 +120,7 @@ margin_left = 239.0
 margin_top = 7.0
 margin_right = 348.0
 margin_bottom = 172.0
+theme = ExtResource( 12 )
 scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Store_BG/ScrollContainer"]

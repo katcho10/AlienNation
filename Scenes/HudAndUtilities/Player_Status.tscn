@@ -52,14 +52,17 @@ __meta__ = {
 }
 
 [node name="status_button" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2( 145, 155 )
 normal = ExtResource( 34 )
 
 [node name="equip_button" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2( 163, 155 )
 normal = ExtResource( 33 )
 
 [node name="status_bg" type="TextureRect" parent="."]
+visible = false
 margin_right = 120.0
 margin_bottom = 55.0
 texture = ExtResource( 3 )
@@ -183,6 +186,7 @@ text = "OK"
 autostart = true
 
 [node name="Control" type="Control" parent="."]
+visible = false
 margin_right = 360.0
 margin_bottom = 180.0
 
@@ -664,6 +668,7 @@ shortcut_in_tooltip = false
 text = "Upgrade"
 
 [node name="skill_bg" type="Control" parent="."]
+visible = false
 margin_right = 360.0
 margin_bottom = 180.0
 mouse_filter = 2

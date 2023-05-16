@@ -26,16 +26,19 @@ __meta__ = {
 }
 
 [node name="inv_button" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2( 128, 155 )
 normal = ExtResource( 2 )
 shape_visible = false
 
 [node name="save_button" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2( 199, 155 )
 normal = ExtResource( 3 )
 shape_visible = false
 
 [node name="load_button" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2( 336.237, 9.53341 )
 normal = ExtResource( 3 )
 shape_visible = false
@@ -222,6 +225,7 @@ custom_styles/normal = ExtResource( 7 )
 text = "Sell 10"
 
 [node name="quick_slot_button" type="TouchScreenButton" parent="."]
+visible = false
 position = Vector2( 345.234, 93.2334 )
 shape = SubResource( 1 )
 shape_centered = false

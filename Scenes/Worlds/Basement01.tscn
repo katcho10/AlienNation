@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://MyResources/MeshLibraries/city_tiles01.meshlib" type="MeshLibrary" id=1]
 [ext_resource path="res://Scripts/level_map.gd" type="Script" id=2]
@@ -10,6 +10,11 @@
 [ext_resource path="res://Scenes/Character/Mob/mr_rat.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/zone_path.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Character/Mob/skeleton.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Character/NPCs/captain_with_deskset.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/MapProps/City/map_board.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/MapProps/City/small_sign_001.tscn" type="PackedScene" id=13]
+[ext_resource path="res://MyResources/Level_Item_Pool/Surplus002_Goods.res" type="Resource" id=14]
+[ext_resource path="res://Scenes/HudAndUtilities/Store_Area.tscn" type="PackedScene" id=15]
 
 [sub_resource type="BoxShape" id=8]
 extents = Vector3( 10, 2, 2 )
@@ -28,6 +33,12 @@ extents = Vector3( 0.5, 2, 10 )
 
 [sub_resource type="BoxShape" id=13]
 extents = Vector3( 0.5, 2, 4 )
+
+[sub_resource type="BoxShape" id=16]
+extents = Vector3( 1.04483, 1, 1.3807 )
+
+[sub_resource type="BoxShape" id=17]
+extents = Vector3( 0.801426, 0.633985, 0.507753 )
 
 [sub_resource type="QuadMesh" id=2]
 size = Vector2( 8, 4 )
@@ -168,6 +179,14 @@ shape = SubResource( 13 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.5, 2, 52 )
 shape = SubResource( 13 )
 
+[node name="CollisionShape5" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.9828, 1.01157, -2.60949 )
+shape = SubResource( 16 )
+
+[node name="CollisionShape18" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.1101, 0.651207, -3.46018 )
+shape = SubResource( 17 )
+
 [node name="map_props" type="Spatial" parent="."]
 
 [node name="MeshInstance" type="MeshInstance" parent="map_props"]
@@ -215,6 +234,15 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.5, 2
 mesh = SubResource( 6 )
 material/0 = SubResource( 7 )
 
+[node name="captain_with_deskset" parent="map_props" instance=ExtResource( 11 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.652, 0, -2.26738 )
+
+[node name="board_big" parent="map_props" instance=ExtResource( 12 )]
+transform = Transform( -6.55671e-08, 0, 1, 0, 1.5, 0, -1.5, 0, -4.37114e-08, -17.973, 2.34421, 0.116618 )
+
+[node name="board_small" parent="map_props" instance=ExtResource( 13 )]
+transform = Transform( 1.50996e-07, 0, 1, 0, 2, 0, -2, 0, 7.54979e-08, -13.9854, 2.98312, 5.17723 )
+
 [node name="Path_of_Enemy" type="Path" parent="."]
 curve = SubResource( 14 )
 script = ExtResource( 9 )
@@ -244,6 +272,7 @@ curve = SubResource( 15 )
 script = ExtResource( 9 )
 
 [node name="PathFollow" type="PathFollow" parent="Path_of_Enemy2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.69628, 0, 52.6373 )
 rotation_mode = 0
 cubic_interp = false
 
@@ -267,6 +296,13 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.98188
 go_to_map = "res://Scenes/Worlds/FirstFloor.tscn"
 spawn_point = Vector3( 8.8, 0, 34 )
 map_name = "Dungeon 1st floor"
+
+[node name="Store_Area" parent="." instance=ExtResource( 15 )]
+transform = Transform( 0.724304, 0, 0.68948, 0, 1, 0, -0.68948, 0, 0.724304, -15.5554, 0, -0.778028 )
+store_name = "Army Surp."
+store_profit = 1123
+is_buying = false
+goods = ExtResource( 14 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )

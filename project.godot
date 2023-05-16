@@ -12,40 +12,46 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Addons_Pool",
 "language": "GDScript",
-"path": "res://Scripts/Addons_Pool.gd"
+"path": "res://Scripts/Pool_Scripts/Addons_Pool.gd"
 }, {
 "base": "Resource",
 "class": "Item_Pool",
 "language": "GDScript",
-"path": "res://Scripts/Item_Pool.gd"
+"path": "res://Scripts/Pool_Scripts/Item_Pool.gd"
 }, {
 "base": "Resource",
 "class": "drug_store_goods",
 "language": "GDScript",
-"path": "res://Scripts/drug_store_goods.gd"
+"path": "res://Scripts/Pool_Scripts/drug_store_goods.gd"
 }, {
 "base": "Resource",
 "class": "store_goods",
 "language": "GDScript",
-"path": "res://Scripts/store_goods.gd"
+"path": "res://Scripts/Pool_Scripts/store_goods.gd"
 }, {
 "base": "Resource",
-"class": "surflus_goods",
+"class": "surplus001_goods",
 "language": "GDScript",
-"path": "res://Scripts/surflus_goods.gd"
+"path": "res://Scripts/Pool_Scripts/surplus001_goods.gd"
+}, {
+"base": "Resource",
+"class": "surplus002_goods",
+"language": "GDScript",
+"path": "res://Scripts/Pool_Scripts/surplus002_goods.gd"
 } ]
 _global_script_class_icons={
 "Addons_Pool": "",
 "Item_Pool": "",
 "drug_store_goods": "",
 "store_goods": "",
-"surflus_goods": ""
+"surplus001_goods": "",
+"surplus002_goods": ""
 }
 
 [application]
 
 config/name="KatchosWonderLand"
-run/main_scene="res://Scenes/Worlds/Junction.tscn"
+run/main_scene="res://Scenes/Worlds/Main_menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

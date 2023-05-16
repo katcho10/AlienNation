@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/level_map.gd" type="Script" id=1]
 [ext_resource path="res://MyResources/Level_Item_Pool/Pool001.res" type="Resource" id=2]
@@ -15,6 +15,8 @@
 [ext_resource path="res://Scenes/Character/NPCs/nurse_stand.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/HudAndUtilities/Store_Area.tscn" type="PackedScene" id=14]
 [ext_resource path="res://MyResources/Level_Item_Pool/DrugStoreGoods001.res" type="Resource" id=15]
+[ext_resource path="res://Scenes/Character/NPCs/enhancer_stand.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/HudAndUtilities/Enhancer_Area.tscn" type="PackedScene" id=17]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -104,6 +106,9 @@ transform = Transform( -3.23464e-08, 0, 1.46, 0, 0.7, 0, -0.74, 0, -6.38186e-08,
 
 [node name="nurse_stand" parent="Props" instance=ExtResource( 13 )]
 transform = Transform( 0.581015, 0, 0.813892, 0, 1, 0, -0.813892, 0, 0.581015, -31.187, 0, -18.8907 )
+
+[node name="enhancer_stand" parent="Props" instance=ExtResource( 16 )]
+transform = Transform( 0.514948, 0, -0.857221, 0, 1, 0, 0.857221, 0, 0.514948, -16.7647, 0, -17.5729 )
 
 [node name="StaticBody" type="StaticBody" parent="."]
 collision_layer = 2
@@ -203,6 +208,10 @@ store_name = "Nurse Yuka"
 store_profit = 25
 is_buying = false
 goods = ExtResource( 15 )
+
+[node name="Enhancer_Area" parent="." instance=ExtResource( 17 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.054, 0, -17.5005 )
+shop_name = "Gibo Enhancer"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 3 )

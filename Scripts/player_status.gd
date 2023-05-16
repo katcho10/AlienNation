@@ -20,7 +20,7 @@ var equip_total_armor:float = 0.0
 
 var status_point:int = 0
 
-var money:int = 1000
+var money:int = 3000
 
 var is_knockout:bool = false
 var ko_tcount = 24
@@ -121,6 +121,14 @@ func level_up():
 	status_point += 3
 	lvl_label.text = String(level)
 	
+	#additional every level
+	max_life += 2
+	max_energy += 1
+	hp_bar.max_value = max_life
+	en_bar.max_value = max_energy
+	
+	
+	
 #func update_spirit():
 #	spirit += 0.2
 #	spirit = min(max_spirit, spirit)
@@ -189,7 +197,14 @@ func to_resurect():
 
 func _on_Button_button_up():
 	to_resurect()
-	
+
+func status_set_visible():
+	$status_bg.visible = true
+	$status_button.visible = true
+	$equip_button.visible = true
+	control_hud.visible = true
+	skill_manager.visible = true
+
 func game_pause(value = true):
 	$status_button.visible = !value
 	$equip_button.visible = !value

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/level_map.gd" type="Script" id=1]
 [ext_resource path="res://MyResources/Level_Item_Pool/Pool001.res" type="Resource" id=2]
@@ -14,8 +14,7 @@
 [ext_resource path="res://Scenes/Character/Mob/crazy_squash.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/HudAndUtilities/Door.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/HudAndUtilities/Store_Area.tscn" type="PackedScene" id=14]
-[ext_resource path="res://MyResources/Level_Item_Pool/SurflusGoods001.res" type="Resource" id=15]
-[ext_resource path="res://Scenes/HudAndUtilities/Enhancer_Area.tscn" type="PackedScene" id=16]
+[ext_resource path="res://MyResources/Level_Item_Pool/Surplus001_Goods.res" type="Resource" id=15]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -314,12 +313,9 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0483, 0, -7.80048 )
 
 [node name="Store_Area2" parent="." instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 24.2869, 0, -11.0426 )
-store_name = "Surflus"
+store_name = "Surplus"
 store_profit = 1017
 goods = ExtResource( 15 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 12 )
-
-[node name="Enhancer_Area" parent="." instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.0066, 0, -6.67406 )

@@ -38,7 +38,6 @@ onready var quick_slot = $quick_slot_button
 
 
 func _ready():
-	test_itemss()
 	pass
 
 func hud_clear(rvalue = true):
@@ -82,7 +81,7 @@ func _on_close_button_button_up():
 	quick_slot.visible = true
 	GPlayerStatus.game_pause(false)
 
-func test_itemss():
+func new_game_items():
 	var tmp1 = item_button.instance()
 	tmp1.text = "Bread"
 	tmp1.ID = 4
@@ -109,17 +108,17 @@ func test_itemss():
 	tmp2.description = "Kitchen utensil cut fresh meat, fish and vegetables"
 	container.add_child(tmp2)
 	
-	var tmp3 = item_button.instance()
-	tmp3.text = "Combat Knife"
-	tmp3.ID = 20
-	tmp3.type = ITEM_type.WEAPON_PRI
-	tmp3.count_or_ups = 0
-	tmp3.price = 1000
-	tmp3.value.x = 50.0
-	tmp3.value.y = 0.0
-	tmp3.value.z = 10.0
-	tmp3.description = "Use for cutting people and enemy"
-	container.add_child(tmp3)
+#	var tmp3 = item_button.instance()
+#	tmp3.text = "Combat Knife"
+#	tmp3.ID = 20
+#	tmp3.type = ITEM_type.WEAPON_PRI
+#	tmp3.count_or_ups = 0
+#	tmp3.price = 1000
+#	tmp3.value.x = 50.0
+#	tmp3.value.y = 0.0
+#	tmp3.value.z = 10.0
+#	tmp3.description = "Use for cutting people and enemy"
+#	container.add_child(tmp3)
 
 func consume_item():
 	GPlayerStatus.restor_status(current_item_selected.value)
