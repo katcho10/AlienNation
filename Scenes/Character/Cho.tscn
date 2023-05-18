@@ -1624,7 +1624,7 @@ nodes/slash_left/node = SubResource( 23 )
 nodes/slash_left/position = Vector2( 520, 220 )
 nodes/slash_right/node = SubResource( 27 )
 nodes/slash_right/position = Vector2( 740, 240 )
-node_connections = [ "output", 0, "slash_right", "slash_right", 0, "slash_left", "slash_right", 1, "Animation 4", "move_to_ko", 0, "idle_to_move", "move_to_ko", 1, "Animation", "slash_left", 0, "shoot", "slash_left", 1, "Animation 3", "shoot", 0, "move_to_ko", "shoot", 1, "Animation 2" ]
+node_connections = [ "output", 0, "slash_right", "shoot", 0, "move_to_ko", "shoot", 1, "Animation 2", "slash_left", 0, "shoot", "slash_left", 1, "Animation 3", "move_to_ko", 0, "idle_to_move", "move_to_ko", 1, "Animation", "slash_right", 0, "slash_left", "slash_right", 1, "Animation 4" ]
 
 [sub_resource type="QuadMesh" id=25]
 
@@ -1683,7 +1683,7 @@ bones/6/name = "hand.R"
 bones/6/parent = 5
 bones/6/rest = Transform( 0.980774, -0.193927, 0.0217808, 0.192821, 0.980211, 0.044787, -0.0300352, -0.0397261, 0.998759, -1.19209e-07, 0.261101, -7.45058e-09 )
 bones/6/enabled = true
-bones/6/bound_children = [  ]
+bones/6/bound_children = [ NodePath("BoneAttachment") ]
 bones/7/name = "neck"
 bones/7/parent = 3
 bones/7/rest = Transform( 1, 6.81523e-08, 4.26176e-07, 1.57506e-08, 0.981033, -0.193841, -4.31303e-07, 0.193841, 0.981033, 5.32907e-15, 0.250338, 0 )
@@ -1708,7 +1708,7 @@ bones/11/name = "hand.L"
 bones/11/parent = 10
 bones/11/rest = Transform( 0.980774, 0.193927, -0.0217808, -0.192821, 0.980211, 0.0447869, 0.0300352, -0.039726, 0.998759, 0, 0.261101, -7.45058e-09 )
 bones/11/enabled = true
-bones/11/bound_children = [  ]
+bones/11/bound_children = [ NodePath("BoneAttachment2") ]
 bones/12/name = "leg_upper.R"
 bones/12/parent = 1
 bones/12/rest = Transform( -0.999933, -0.0113718, 0.00219734, 0.0109873, -0.991359, -0.130713, 0.00366323, -0.130682, 0.991409, -0.154611, 0.020529, -0.0268346 )
@@ -1750,7 +1750,7 @@ mesh = SubResource( 2 )
 material/0 = ExtResource( 2 )
 
 [node name="BoneAttachment" type="BoneAttachment" parent="cho_armature"]
-transform = Transform( -0.619674, 0.546077, 0.563743, 0.604368, -0.126263, 0.786636, 0.500745, 0.828163, -0.25179, -0.138455, 1.07445, 0.64738 )
+transform = Transform( -0.63111, 0.558957, 0.537838, 0.590471, -0.103466, 0.8004, 0.503038, 0.822714, -0.26475, -0.126188, 1.09366, 0.645846 )
 bone_name = "hand.R"
 
 [node name="MeshInstance" type="MeshInstance" parent="cho_armature/BoneAttachment"]
@@ -1759,7 +1759,7 @@ mesh = ExtResource( 3 )
 material/0 = ExtResource( 2 )
 
 [node name="BoneAttachment2" type="BoneAttachment" parent="cho_armature"]
-transform = Transform( -0.855166, 0.333057, -0.397199, -0.39846, 0.0677397, 0.914679, 0.331549, 0.940469, 0.074782, 0.4291, 0.92814, -0.0449434 )
+transform = Transform( -0.866175, 0.330706, -0.37467, -0.365903, 0.0909643, 0.926196, 0.340383, 0.939339, 0.042217, 0.419166, 0.930741, -0.0333469 )
 bone_name = "hand.L"
 
 [node name="MeshInstance" type="MeshInstance" parent="cho_armature/BoneAttachment2"]
@@ -1827,7 +1827,7 @@ cast_shadow = 0
 billboard = 1
 double_sided = false
 fixed_size = true
-text = "Katcho"
+text = "Unnamed"
 font = ExtResource( 8 )
 
 [connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]

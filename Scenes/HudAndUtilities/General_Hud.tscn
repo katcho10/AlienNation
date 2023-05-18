@@ -1,12 +1,33 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/general_hud.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Hud/bg_002.png" type="Texture" id=2]
 [ext_resource path="res://MyResources/DynamicFonts/Kenney_Mini_S8.res" type="DynamicFont" id=3]
 [ext_resource path="res://Assets/Hud/bar_red.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Icons/diskette.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Hud/bar_blue.png" type="Texture" id=6]
+[ext_resource path="res://MyResources/ThemesFolder/pinkdButton.stylebox" type="StyleBox" id=7]
+[ext_resource path="res://MyResources/ThemesFolder/focusButton.stylebox" type="StyleBox" id=8]
+[ext_resource path="res://MyResources/ThemesFolder/greenButton.stylebox" type="StyleBox" id=9]
+[ext_resource path="res://MyResources/ThemesFolder/focusGButton.stylebox" type="StyleBox" id=10]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 180.0 ]
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+
+[node name="save_and_exit_tbtn" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2( 199, 155 )
+normal = ExtResource( 5 )
+shape_centered = false
+shape_visible = false
+
+[node name="Tween" type="Tween" parent="."]
 
 [node name="Monster_Info_BG" type="TextureRect" parent="."]
 visible = false
@@ -39,7 +60,62 @@ margin_bottom = 18.0
 custom_fonts/font = ExtResource( 3 )
 align = 1
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+[node name="Saving_BG" type="TextureRect" parent="."]
+visible = false
+margin_left = 133.0
+margin_top = 51.0
+margin_right = 227.0
+margin_bottom = 123.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Label" type="Label" parent="Saving_BG"]
+margin_left = 6.0
+margin_top = 3.0
+margin_right = 90.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 3 )
+text = "nothing..."
+
+[node name="TextureProgress" type="TextureProgress" parent="Saving_BG"]
+margin_left = 5.0
+margin_top = 12.0
+margin_right = 89.0
+margin_bottom = 17.0
+value = 100.0
+texture_progress = ExtResource( 6 )
+nine_patch_stretch = true
+
+[node name="res_btn" type="Button" parent="Saving_BG"]
+margin_left = 22.0
+margin_top = 26.0
+margin_right = 72.0
+margin_bottom = 42.0
+custom_fonts/font = ExtResource( 3 )
+custom_styles/focus = ExtResource( 8 )
+custom_styles/normal = ExtResource( 7 )
+shortcut_in_tooltip = false
+text = "Resume"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="quit_btn" type="Button" parent="Saving_BG"]
+margin_left = 22.0
+margin_top = 48.0
+margin_right = 72.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 3 )
+custom_styles/focus = ExtResource( 10 )
+custom_styles/normal = ExtResource( 9 )
+shortcut_in_tooltip = false
+text = "Quit"
+__meta__ = {
+"_editor_description_": ""
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="released" from="save_and_exit_tbtn" to="." method="_on_save_and_exit_tbtn_released"]
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
+[connection signal="button_up" from="Saving_BG/res_btn" to="." method="_on_res_btn_button_up"]
+[connection signal="button_up" from="Saving_BG/quit_btn" to="." method="_on_quit_btn_button_up"]

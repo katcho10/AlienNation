@@ -43,12 +43,12 @@ func _ready():
 func hud_clear(rvalue = true):
 	if rvalue:
 		$inv_button.visible = false
-		$save_button.visible = false
 		quick_slot.visible = false
+		GGeneral_Hud.hud_clear()
 	else:
 		$inv_button.visible = true
-		$save_button.visible = true
 		quick_slot.visible = true
+		GGeneral_Hud.hud_clear(false)
 	
 
 func on_sell_inventory_item():
@@ -57,8 +57,8 @@ func on_sell_inventory_item():
 	$background/inv_label.text = "Sell"
 	$background.visible = true
 	$inv_button.visible = false
-	$save_button.visible = false
 	quick_slot.visible = false
+	GGeneral_Hud.hud_clear()
 	GPlayerStatus.game_pause()
 
 func _on_inv_button_released():
@@ -67,8 +67,8 @@ func _on_inv_button_released():
 	$background/inv_label.text = "Inventory"
 	$background.visible = true
 	$inv_button.visible = false
-	$save_button.visible = false
 	quick_slot.visible = false
+	GGeneral_Hud.hud_clear()
 	GPlayerStatus.game_pause()
 	$debug_label.text = ""
 
@@ -77,8 +77,8 @@ func _on_close_button_button_up():
 	close_item_status()
 	$background.visible = false
 	$inv_button.visible = true
-	$save_button.visible = true
 	quick_slot.visible = true
+	GGeneral_Hud.hud_clear(false)
 	GPlayerStatus.game_pause(false)
 
 func new_game_items():
@@ -388,9 +388,12 @@ func cart_add_equipment(value):
 	container.add_child(tmp1)
 	return true
 
+func clear_debug_label():
+	$debug_label.text = ""
+
 #save inventory
-func _on_save_button_released():
-	GPlayerStatus.on_save()
+func on_save():
+	#GPlayerStatus.on_save()
 	
 	$debug_label.text = "saving!!!!"
 		
@@ -416,7 +419,7 @@ func _on_save_button_released():
 	$debug_label.text = apath + " invetory save!!!"
 
 #load inventory
-func _on_load_button_released():
+func on_load():
 	GPlayerStatus.on_load()
 	
 	$debug_label.text = "loading!!!!"
@@ -446,4 +449,4 @@ func _on_load_button_released():
 		
 		line_num += 1
 	savegame.close()
-	$debug_label.text = "load complete!!"
+	$debug_label.text = "v0.1"

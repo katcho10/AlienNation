@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/player_inventory.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Icons/MyBag.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Icons/diskette.png" type="Texture" id=3]
 [ext_resource path="res://MyResources/DynamicFonts/Kenney_Mini_S8.res" type="DynamicFont" id=4]
 [ext_resource path="res://Assets/Hud/bg_003.png" type="Texture" id=5]
 [ext_resource path="res://MyResources/DynamicFonts/Kenney_Mini_s16.res" type="DynamicFont" id=6]
@@ -31,24 +30,13 @@ position = Vector2( 128, 155 )
 normal = ExtResource( 2 )
 shape_visible = false
 
-[node name="save_button" type="TouchScreenButton" parent="."]
-visible = false
-position = Vector2( 199, 155 )
-normal = ExtResource( 3 )
-shape_visible = false
-
-[node name="load_button" type="TouchScreenButton" parent="."]
-visible = false
-position = Vector2( 336.237, 9.53341 )
-normal = ExtResource( 3 )
-shape_visible = false
-
 [node name="debug_label" type="Label" parent="."]
 margin_left = 2.39593
 margin_top = 169.226
 margin_right = 356.396
 margin_bottom = 179.226
 custom_fonts/font = ExtResource( 4 )
+text = "v0.1"
 
 [node name="background" type="TextureRect" parent="."]
 visible = false
@@ -245,8 +233,6 @@ custom_fonts/font = ExtResource( 4 )
 clip_text = true
 
 [connection signal="released" from="inv_button" to="." method="_on_inv_button_released"]
-[connection signal="released" from="save_button" to="." method="_on_save_button_released"]
-[connection signal="released" from="load_button" to="." method="_on_load_button_released"]
 [connection signal="button_up" from="background/close_button" to="." method="_on_close_button_button_up"]
 [connection signal="button_up" from="background/Item_Stat_BG/use_equip_button" to="." method="_on_use_equip_button_button_up"]
 [connection signal="button_up" from="background/Item_Stat_BG/add_slot_button" to="." method="_on_add_slot_button_button_up"]

@@ -4,7 +4,7 @@ onready var conti_btn = $CanvasLayer/continue_btn
 
 func _ready():
 	if has_save():
-		GPlayerInventory._on_load_button_released()
+		GPlayerInventory.on_load()
 		$CanvasLayer/new_game_btn.visible = false
 		$Timer.start(1)
 	pass
@@ -20,8 +20,10 @@ func has_save():
 
 func _on_new_game_btn_button_up():
 	GPlayerStatus.spawn_position = Vector3(18.784, 0.0, -4.676)
+	GPlayerStatus.update_status_display()
 	GPlayerInventory.new_game_items()
 	GPlayerInventory.hud_clear(false)
+	GGeneral_Hud.hud_clear(false)
 	GPlayerStatus.status_set_visible()
 	GBgLoader.goto_scene("res://Scenes/Worlds/Junction.tscn")
 
@@ -31,6 +33,7 @@ func _on_quit_btn_button_up():
 func _on_continue_btn_button_up():
 	GPlayerStatus.spawn_position = Vector3(18.784, 0.0, -4.676)
 	GPlayerInventory.hud_clear(false)
+	GGeneral_Hud.hud_clear(false)
 	GPlayerStatus.status_set_visible()
 	GBgLoader.goto_scene("res://Scenes/Worlds/Junction.tscn")
 

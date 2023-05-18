@@ -49,9 +49,9 @@ func initialized_player(value):
 	player.translation = spawn_position
 	value.add_child(player)
 	#no need for this if i got lobby or menu scene
-	update_status_display()
+	#update_status_display()
 	
-
+#not use ???
 func update_status_display():
 	hp_bar.max_value = max_life
 	hp_bar.value = life
@@ -189,6 +189,7 @@ func to_resurect():
 	GBgLoader.path_going_to = "res://Scenes/Worlds/Junction.tscn"
 	life = max_life
 	energy = max_energy
+	update_status_display()
 	spawn_position = Vector3(17.589, 0.0, -4.867)
 	GBgLoader._on_ReviveButton_button_up()
 	movement_control_hide(false)
@@ -266,8 +267,8 @@ func on_save():
 	savegame.close()
 	print("save status")
 	
-	equipments.on_save()
-	skill_manager.on_save()
+	#equipments.on_save()
+	#skill_manager.on_save()
 
 func on_load():
 	var savegame = File.new()
