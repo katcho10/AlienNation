@@ -1,0 +1,167 @@
+[gd_scene load_steps=25 format=2]
+
+[ext_resource path="res://Scenes/MapProps/Monsters/cho_props_tadaaa.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/MapProps/Monsters/nguard_propss.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Fonts/Kenney Future Narrow.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/Credits_Logo/y2mates_x240.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Credits_Logo/youtube_x240.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Credits_Logo/puppy_linux_x240.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Credits_Logo/patreon.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Credits_Logo/pixel_station_x240.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Credits_Logo/blender_x240.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Credits_Logo/fam_x240.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Credits_Logo/gimp_x240.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Credits_Logo/github_x240.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Credits_Logo/godot_x240.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Credits_Logo/google.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Credits_Logo/kenney_x240.png" type="Texture" id=15]
+[ext_resource path="res://MyResources/DynamicFonts/Kenney_Mini_S8.res" type="DynamicFont" id=16]
+[ext_resource path="res://MyResources/ThemesFolder/focusButton.stylebox" type="StyleBox" id=17]
+[ext_resource path="res://MyResources/ThemesFolder/yellowdButton.stylebox" type="StyleBox" id=18]
+[ext_resource path="res://Scripts/creadits.gd" type="Script" id=19]
+
+[sub_resource type="Animation" id=2]
+resource_name = "New Anim"
+length = 40.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("props_guard_w_march:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 21.1, 40 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 7.57603, 0.831781, -3.59071 ), Vector3( -7.37658, 1.06899, -3.61162 ), Vector3( 7.57603, 0.831781, -3.59071 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("props_guard_w_march:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 20.6, 21, 40 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ), Vector3( 0, -90, 0 ), Vector3( 0, 90, 0 ), Vector3( 0, 90, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("props_guard_w_march:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 8.17649, 0, -1.54461 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("props_guard_w_march:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 20
+font_data = ExtResource( 3 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_color = Color( 0.113725, 0.113725, 0.113725, 1 )
+background_energy = 0.0
+
+[node name="Creadits" type="Spatial"]
+script = ExtResource( 19 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.97402, 0.226464, 0, -0.226464, 0.97402, 0, 1.98405, 2.52047 )
+size = 3.0
+
+[node name="props_guard_w_march" parent="." instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 8.17649, 0, -1.54461 )
+
+[node name="props_cho_tadaaa" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.798522, 0.142232, 0.584922, -0.088981, 0.9889, -0.11899, -0.595353, 0.0429688, 0.802314, -2.49695, 0, 0.0198505 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 5.0
+margin_top = 4.0
+margin_right = 125.0
+margin_bottom = 27.0
+custom_colors/font_color = Color( 0.905882, 0.752941, 0.0509804, 1 )
+custom_colors/font_color_shadow = Color( 0.866667, 0.866667, 0.780392, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "thanks to:"
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer"]
+position = Vector2( 230, 96 )
+frames = SubResource( 5 )
+
+[node name="next_btn" type="Button" parent="CanvasLayer"]
+margin_left = 300.0
+margin_top = 147.0
+margin_right = 350.0
+margin_bottom = 167.0
+rect_min_size = Vector2( 50, 20 )
+custom_fonts/font = ExtResource( 16 )
+custom_styles/focus = ExtResource( 17 )
+custom_styles/normal = ExtResource( 18 )
+text = "Next"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="menu_btn" type="Button" parent="CanvasLayer"]
+margin_left = 110.0
+margin_top = 146.0
+margin_right = 160.0
+margin_bottom = 166.0
+rect_min_size = Vector2( 50, 20 )
+custom_fonts/font = ExtResource( 16 )
+custom_styles/focus = ExtResource( 17 )
+custom_styles/normal = ExtResource( 18 )
+text = "main menu"
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[connection signal="button_up" from="CanvasLayer/next_btn" to="." method="_on_next_btn_button_up"]
+[connection signal="button_up" from="CanvasLayer/menu_btn" to="." method="_on_menu_btn_button_up"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

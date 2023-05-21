@@ -36,7 +36,7 @@ margin_top = 169.226
 margin_right = 356.396
 margin_bottom = 179.226
 custom_fonts/font = ExtResource( 4 )
-text = "v0.1"
+text = "v0.2"
 
 [node name="background" type="TextureRect" parent="."]
 visible = false

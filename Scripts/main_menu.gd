@@ -38,7 +38,7 @@ func _on_continue_btn_button_up():
 	GBgLoader.goto_scene("res://Scenes/Worlds/Junction.tscn")
 
 func _on_credits_btn_button_up():
-	pass # Replace with function body.
+	GBgLoader.goto_scene("res://Scenes/Worlds/Creadits.tscn")
 
 func _on_Timer_timeout():
 	conti_btn.visible = true

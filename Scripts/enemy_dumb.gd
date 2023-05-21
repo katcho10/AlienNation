@@ -23,6 +23,9 @@ export var mname = "Mr Onion"
 export var max_life = 100
 export var damage = 10
 export var gain_exp = 52
+export var atk_range = 2
+export var chase_range = 10
+export var is_boss = false
 var life = 100
 
 onready var col_shape = $CollisionShape
@@ -76,10 +79,10 @@ func _process(_delta):
 			_rot.y = atan2(dir.x, dir.z)
 			set_rotation(_rot)
 			
-			if(distance > 10):
+			if(distance > chase_range):
 				state = PATROL
 				phasez_timer.start(1)
-			elif(distance > 2):
+			elif(distance > atk_range):
 				velocity = dir * speed
 				velocity = move_and_slide(velocity, Vector3.UP)
 				animation = ANIM_WALK
@@ -138,7 +141,10 @@ func squash():
 	phasez_timer.start(12)
 	anim_player.play(ANIM_KNOCKOUT)
 	GPlayerStatus.add_expirence(gain_exp)
-	GBgLoader.current_scene.set_drops(global_transform.origin)
+	if not is_boss:
+		GBgLoader.current_scene.set_drops(global_transform.origin)
+	else:
+		GBgLoader.current_scene.set_special_drop(global_transform.origin)
 
 func reset():
 	life = max_life

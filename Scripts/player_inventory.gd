@@ -449,4 +449,4 @@ func on_load():
 		
 		line_num += 1
 	savegame.close()
-	$debug_label.text = "v0.1"
+	$debug_label.text = "v0.2"

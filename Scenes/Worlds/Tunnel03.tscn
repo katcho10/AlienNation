@@ -1,0 +1,163 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://MyResources/MeshLibraries/city_tiles01.meshlib" type="MeshLibrary" id=1]
+[ext_resource path="res://MyResources/Level_Item_Pool/Pool001.res" type="Resource" id=2]
+[ext_resource path="res://Scripts/level_map.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/zone_path.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Character/Boss/subboss_robo_drone.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/HudAndUtilities/Door.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Character/Mob/robo_nurse.tscn" type="PackedScene" id=7]
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 14, 4, 16 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 1, 4, 12 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 6, 4, 1 )
+
+[sub_resource type="Curve3D" id=5]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 30.1692, 0, -40.0115, 0, 0, 0, 0, 0, 0, 5.48078, 0, -39.697, 0, 0, 0, 0, 0, 0, 5.53319, 0, -28.5845, 0, 0, 0, 0, 0, 0, 29.8547, 0, -28.5845, 0, 0, 0, 0, 0, 0, 30.1692, 0, -40.0115 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=6]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -2.97377, 0, -16.2797, 0, 0, 0, 0, 0, 0, -3.61423, 0, -40.6173, 0, 0, 0, 0, 0, 0, -3.40074, 0, -66.2358, 0, 0, 0, 0, 0, 0, 3.21737, 0, -66.2358, 0, 0, 0, 0, 0, 0, 3.64435, 0, -34.2127, 0, 0, 0, 0, 0, 0, 3.43085, 0, -16.2797 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="Curve3D" id=7]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -4.61032, 0, -41.8402, 0, 0, 0, 0, 0, 0, -11.4861, 0, -41.5256, 0, 0, 0, 0, 0, 0, -11.7557, 0, -29.4818, 0, 0, 0, 0, 0, 0, 3.97319, 0, -22.4262 ),
+"tilts": PoolRealArray( 0, 0, 0, 0 )
+}
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+background_color = Color( 0.113725, 0.113725, 0.113725, 1 )
+background_energy = 0.0
+
+[node name="Level_Tunnel03" type="Spatial"]
+script = ExtResource( 3 )
+Pool_Item = ExtResource( 2 )
+gold_max_aquired = 70
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 1 )
+cell_size = Vector3( 1, 1, 1 )
+cell_center_x = false
+cell_center_y = false
+cell_center_z = false
+collision_layer = 0
+collision_mask = 0
+navigation_layers = 0
+data = {
+"cells": PoolIntArray( 0, 2, 655361, 4, 2, 40, 65532, 2, 655400, 131078, 2, 1507392, 196602, 2, 1245248, 393222, 4, 1507394, 458746, 4, 1245253, 0, 6, 1, 4, 6, 40, 65532, 6, 655400, 131078, 6, 1507392, 196602, 6, 1245248, 0, 65462, 1, 4, 65462, 5, 65532, 65462, 655365, 131078, 65462, 1507392, 196602, 65462, 1245249, 393222, 65464, 1507394, 458746, 65464, 1245253, 0, 65466, 655361, 4, 65466, 5, 65532, 65466, 655365, 131078, 65466, 1507393, 196602, 65466, 1245248, 0, 65470, 655361, 4, 65470, 5, 65532, 65470, 655365, 131078, 65470, 1507392, 196602, 65470, 1245248, 393222, 65472, 1507394, 458746, 65472, 1376325, 0, 65474, 655361, 4, 65474, 5, 65532, 65474, 655365, 131078, 65474, 1507392, 196602, 65474, 1245248, 0, 65478, 655361, 4, 65478, 5, 65532, 65478, 655365, 131078, 65478, 1507392, 196602, 65478, 1245248, 393222, 65480, 1507394, 458746, 65480, 1376325, 0, 65482, 655361, 4, 65482, 5, 65532, 65482, 655365, 131078, 65482, 1507393, 196602, 65482, 1245249, 0, 65486, 655361, 4, 65486, 5, 65532, 65486, 655365, 131078, 65486, 1507392, 196602, 65486, 1245248, 393222, 65488, 1507394, 458746, 65488, 1376325, 0, 65490, 655361, 4, 65490, 5, 65532, 65490, 655365, 131078, 65490, 1507391, 196602, 65490, 1245247, 131080, 65492, 262214, 131084, 65492, 262215, 131088, 65492, 262209, 131092, 65492, 262215, 131096, 65492, 262208, 131100, 65492, 262215, 131104, 65492, 262209, 196596, 65492, 262209, 196600, 65492, 262207, 393226, 65492, 262210, 393234, 65492, 262210, 393242, 65492, 262210, 393250, 65492, 262210, 458742, 65492, 393285, 0, 65494, 2, 4, 65494, 1048583, 8, 65494, 1048581, 12, 65494, 1048581, 16, 65494, 1048581, 20, 65494, 1048581, 24, 65494, 1048581, 28, 65494, 1048581, 32, 65494, 74, 65524, 65494, 1048650, 65528, 65494, 1048581, 65532, 65494, 655367, 131106, 65494, 1507393, 196594, 65494, 1245254, 458738, 65494, 1376328, 393250, 65496, 1507397, 0, 65498, 0, 4, 65498, 0, 8, 65498, 0, 12, 65498, 655360, 16, 65498, 655360, 20, 65498, 655360, 24, 65498, 655360, 28, 65498, 655360, 32, 65498, 5, 65524, 65498, 655365, 65528, 65498, 655360, 65532, 65498, 655360, 131106, 65498, 1507399, 196594, 65498, 1245255, 458738, 65500, 1376325, 0, 65502, 0, 4, 65502, 0, 8, 65502, 2, 12, 65502, 655360, 16, 65502, 655360, 20, 65502, 655360, 24, 65502, 655360, 28, 65502, 655360, 32, 65502, 5, 65524, 65502, 655365, 65528, 65502, 655360, 65532, 65502, 655360, 131106, 65502, 1507398, 196594, 65502, 1245249, 393250, 65502, 1507400, 0, 65506, 0, 4, 65506, 0, 8, 65506, 0, 12, 65506, 655360, 16, 65506, 655360, 20, 65506, 1441794, 24, 65506, 655360, 28, 65506, 655360, 32, 65506, 5, 65524, 65506, 655365, 65528, 65506, 655362, 65532, 65506, 655360, 131106, 65506, 1507399, 196594, 65506, 1245255, 393250, 65508, 1507397, 458738, 65508, 1376325, 0, 65510, 0, 4, 65510, 42, 8, 65510, 1441797, 12, 65510, 1441797, 16, 65510, 1441797, 20, 65510, 1441797, 24, 65510, 1441797, 28, 65510, 1441797, 32, 65510, 1441866, 65524, 65510, 655434, 65528, 65510, 1441832, 65532, 65510, 1441834, 131106, 65510, 1507393, 196594, 65510, 1245254, 131080, 65512, 917574, 131084, 65512, 917575, 131088, 65512, 917569, 131092, 65512, 917575, 131096, 65512, 917568, 131100, 65512, 917575, 131104, 65512, 917569, 196596, 65512, 917569, 196600, 65512, 917567, 393226, 65512, 917570, 393234, 65512, 917570, 393242, 65512, 917570, 393250, 65512, 917570, 458742, 65512, 786501, 0, 65514, 1, 4, 65514, 40, 65532, 65514, 655400, 131078, 65514, 1507391, 196602, 65514, 1245247, 393222, 65516, 1507394, 458746, 65516, 1376325, 0, 65518, 1, 4, 65518, 40, 65532, 65518, 655400, 131078, 65518, 1507392, 196602, 65518, 1245248, 0, 65522, 1, 4, 65522, 40, 65532, 65522, 655400, 131078, 65522, 1507393, 196602, 65522, 1245249, 393222, 65524, 1507394, 458746, 65524, 1376325, 0, 65526, 1, 4, 65526, 40, 65532, 65526, 655400, 131078, 65526, 1507392, 196602, 65526, 1245248, 0, 65530, 1, 4, 65530, 40, 65532, 65530, 655400, 131078, 65530, 1507392, 196602, 65530, 1245248, 393222, 65532, 1507394, 458746, 65532, 1245253, 0, 65534, 1, 4, 65534, 40, 65532, 65534, 655400, 131078, 65534, 1507392, 196602, 65534, 1245248 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 2, 0 )
+}
+
+[node name="StaticBody" type="StaticBody" parent="."]
+collision_layer = 2
+collision_mask = 0
+input_ray_pickable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 4, -8 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 4, -60 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4, -8 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4, -60 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 35, 4, -34 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 4, -34 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 7 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -75 )
+shape = SubResource( 4 )
+
+[node name="Path_Of_Enemy" type="Path" parent="."]
+curve = SubResource( 5 )
+script = ExtResource( 4 )
+
+[node name="PathFollow" type="PathFollow" parent="Path_Of_Enemy"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.1692, 0, -40.0115 )
+rotation_mode = 0
+cubic_interp = false
+loop = false
+
+[node name="Drone" parent="Path_Of_Enemy" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 20.6824, 0, -34.7445 )
+
+[node name="Path_Of_Enemy2" type="Path" parent="."]
+curve = SubResource( 6 )
+script = ExtResource( 4 )
+
+[node name="PathFollow" type="PathFollow" parent="Path_Of_Enemy2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97377, 0, -16.2797 )
+rotation_mode = 0
+cubic_interp = false
+loop = false
+
+[node name="nurse" parent="Path_Of_Enemy2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.86058, 0, -60.5329 )
+
+[node name="nurse2" parent="Path_Of_Enemy2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0319, 0, -52.139 )
+
+[node name="nurse3" parent="Path_Of_Enemy2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2913, 0, -41.4773 )
+
+[node name="nurse4" parent="Path_Of_Enemy2" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2901, 0, -31.1613 )
+
+[node name="Path_Of_Enemy3" type="Path" parent="."]
+curve = SubResource( 7 )
+script = ExtResource( 4 )
+
+[node name="PathFollow" type="PathFollow" parent="Path_Of_Enemy3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.61032, 0, -41.8402 )
+rotation_mode = 0
+cubic_interp = false
+loop = false
+
+[node name="nurse" parent="Path_Of_Enemy3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.35025, 0, -22.4733 )
+
+[node name="nurse2" parent="Path_Of_Enemy3" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.99463, 0, -37.0636 )
+
+[node name="door" parent="." instance=ExtResource( 6 )]
+transform = Transform( -4.37114e-08, 0, 2, 0, 1, 0, -1, 0, -8.74228e-08, 0, 0, 4.94519 )
+go_to_map = "res://Scenes/Worlds/Tunnel02.tscn"
+spawn_point = Vector3( 68.411, 0, -64.945 )
+map_name = "Tunnel 1st Corner"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="tmp_point" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.07762, 0, 0.355447 )

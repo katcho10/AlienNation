@@ -65,8 +65,6 @@ export(Array) var OtherItems = [
 export(Array) var Weapons = [
 ["Kitchen Knife", 20, 2, 0, 100, Vector3(10.0, 0.0, 3.0), "Kitchen utensil cut fresh meat, fish and vegetables"],
 ["Kitchen Knife", 20, 2, 0, 100, Vector3(10.0, 0.0, 3.0), "Kitchen utensil cut fresh meat, fish and vegetables"],
-["Kitchen Knife", 20, 2, 0, 100, Vector3(10.0, 0.0, 3.0), "Kitchen utensil cut fresh meat, fish and vegetables"],
-["Kitchen Knife", 20, 2, 0, 100, Vector3(10.0, 0.0, 3.0), "Kitchen utensil cut fresh meat, fish and vegetables"],
 ["Six Shooter", 21, 3, 0, 350, Vector3(10.0, 10.0, 0.0), "Revolver gun that shoot six energy bullets"],
 ["Combat Knife", 22, 2, 0, 1500, Vector3(30.0, 0.0, 10.0), "Army standard issue combat knife"],
 ["Hand Gun", 23, 3, 0, 2000, Vector3(20.0, 20.0, 0.0), "Low caliver gun that shoot energy bullets"]

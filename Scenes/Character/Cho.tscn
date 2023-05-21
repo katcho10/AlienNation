@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://MyResources/Materials/cho.material" type="Material" id=2]
-[ext_resource path="res://Assets/Creator_Cho/kitchen_knifu.obj" type="ArrayMesh" id=3]
-[ext_resource path="res://Assets/Creator_Cho/hand_gun.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://Assets/D_Cho/kitchen_knifu.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://Assets/D_Cho/hand_gun.obj" type="ArrayMesh" id=4]
 [ext_resource path="res://MyResources/Materials/gun.material" type="Material" id=5]
 [ext_resource path="res://MyResources/Materials/shadow.material" type="Material" id=6]
 [ext_resource path="res://MyResources/DynamicFonts/Kenney_Mini_s16.res" type="DynamicFont" id=7]

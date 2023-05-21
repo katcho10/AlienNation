@@ -17,6 +17,7 @@ var etc_loot = preload("res://Scenes/Lootables/Etc_Loots.tscn")
 var drnk_loot = preload("res://Scenes/Lootables/Drink_Loots.tscn")
 var equip_loot = preload("res://Scenes/Lootables/Equipment_Loots.tscn")
 
+export var boss_gold_max_aquired = 500
 export var gold_max_aquired = 50
 var gold_min_aquired = 10
 #
@@ -121,3 +122,28 @@ func set_drops(gpos):
 			set_armor_drop()
 		_:
 			pass
+
+func set_special_drop(gpos):
+	drop_location = gpos
+	drop_location.y = 0.0
+	drop_offset.x = rand_range(-1, 1.8)
+	drop_offset.z = rand_range(-1.5, 1)
+	
+	var tmp_weap = equip_loot.instance()
+	tmp_weap.set_array_buff(Pool_Item.Weapons[Pool_Item.Weapons.size() - 1])
+	add_child(tmp_weap)
+	tmp_weap.global_translate(drop_location + drop_offset)
+
+	drop_offset.x = rand_range(-1, 1.8)
+	drop_offset.z = rand_range(-1.5, 1)
+	
+	var tmp_amr = equip_loot.instance()
+	tmp_amr.set_array_buff(Pool_Item.Armors[Pool_Item.Armors.size() - 1])
+	add_child(tmp_amr)
+	tmp_amr.global_translate(drop_location + drop_offset)
+	
+	var tmp_gold = gold_loot.instance()
+	tmp_gold.value = boss_gold_max_aquired
+	add_child(tmp_gold)
+	tmp_gold.global_translate(drop_location - drop_offset)
+	

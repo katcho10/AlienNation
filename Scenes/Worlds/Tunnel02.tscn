@@ -149,19 +149,25 @@ rotation_mode = 0
 cubic_interp = false
 
 [node name="nurse" parent="Path_of_Enemy3" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 51.7368, 0, -61.4125 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.6254, 0, -59.6338 )
 
 [node name="nurse2" parent="Path_of_Enemy3" instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 39.4453, 0, -61.4125 )
 
 [node name="nurse3" parent="Path_of_Enemy3" instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 63.913, 0, -61.4125 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.1498, 0, -57.3586 )
 
 [node name="door" parent="." instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 2, 0, 1, 0, -1, 0, -8.74228e-08, 0, 0, -1.1 )
 go_to_map = "res://Scenes/Worlds/Tunnel01.tscn"
 spawn_point = Vector3( 26.05, 0, -94.379 )
 map_name = "Tunnel One"
+
+[node name="door2" parent="." instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, 0, 2, 0, 1, 0, -1, 0, -8.74228e-08, 63.987, 0, -67.9259 )
+go_to_map = "res://Scenes/Worlds/Tunnel03.tscn"
+spawn_point = Vector3( -4.078, 0, 0.355 )
+map_name = "Tunnel Middle"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
